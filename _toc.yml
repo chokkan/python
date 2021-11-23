@@ -1,0 +1,39 @@
+format: jb-book
+root: index
+
+parts:
+- caption: 基礎
+  numbered: true
+  chapters:
+    - file: calc
+    - file: variable
+    - file: control
+    - file: function
+    - file: module
+- caption: データ構造
+  numbered: true
+  chapters:    
+    - file: list
+    - file: tuple
+    - file: str
+    - file: dict
+    - file: set
+- caption: 発展
+  numbered: true
+  chapters:    
+    - file: file
+    - file: immutable
+    - file: class
+    - file: exception
+    - file: iterator
+- caption: 科学技術計算とデータ分析
+  numbered: true
+  chapters:
+    - file: numpy1
+    - file: numpy2
+    - file: plot
+- caption: 付録
+  numbered: False
+  chapters:
+    - file: jupyter
+    - file: references

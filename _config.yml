@@ -1,0 +1,48 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Python早見帳
+author: 岡崎 直観 (Naoaki Okazaki)
+copyright: "2020-2021, クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0)"
+only_build_toc_files: true
+exclude_patterns: [_build, material, pdf, README.md, .DS_Store]
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: 'off'
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+
+html:
+  baseurl: "https://chokkan.github.io/python/"
+  use_repository_button: true
+  home_page_in_navbar: false # Whether to include your home page in the left Navigation Bar
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/chokkan/python  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
