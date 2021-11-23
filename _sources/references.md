@@ -7,3 +7,7 @@
 + [コンピュータ処理](https://amorphous.tf.chiba-u.jp/lecture.files/chem_computer/index.html)（千葉大学 共生応用化学科）
 + [Python入門](https://www.atmarkit.co.jp/ait/subtop/features/di/all.html#pythone585a5e99680)（@IT/Deep Insider）
 + [機械学習＆ディープラーニング入門（作業環境準備編）](https://www.atmarkit.co.jp/ait/series/15223/)（@IT/Deep Insider）
+
+## 謝辞
+
++ [Jupiter](https://images.nasa.gov/details-PIA00343): The credit of the image used in Twitter card: NASA/JPL/USGS
