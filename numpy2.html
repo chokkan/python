@@ -1,0 +1,2223 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. NumPy (2): 行列・テンソル &#8212; Python早見帳</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="18. Matplotlib: グラフの描画" href="plot.html" />
+    <link rel="prev" title="16. NumPy (1): ベクトル" href="numpy1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python早見帳</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   はじめに
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  基礎
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="calc.html">
+   1. 基本的な計算
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variable.html">
+   2. 変数
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="control.html">
+   3. 実行制御
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function.html">
+   4. 関数
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="module.html">
+   5. モジュール
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  データ構造
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="list.html">
+   6. リスト
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tuple.html">
+   7. タプル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="str.html">
+   8. 文字列
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dict.html">
+   9. 辞書
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="set.html">
+   10. 集合
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  発展
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="file.html">
+   11. ファイルの入出力
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="immutable.html">
+   12. 可変と不変
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="class.html">
+   13. クラス
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exception.html">
+   14. 例外
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iterator.html">
+   15. イテレータとジェネレータ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  科学技術計算とデータ分析
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy1.html">
+   16. NumPy (1): ベクトル
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   17. NumPy (2): 行列・テンソル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot.html">
+   18. Matplotlib: グラフの描画
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  付録
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter.html">
+   Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   参考資料
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/numpy2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2Fnumpy2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=tree/docs/numpy2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   17.1. 行列のオブジェクト
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   17.2. 行列の要素
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   17.3. 行列の算術演算
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   17.4. 行列の様々な作成方法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   17.5. 数学関数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   17.6. ユニバーサル関数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   17.7. 行列の連結
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   17.8. ビュー
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   17.9. テンソル
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="numpy-2">
+<h1><span class="section-number">17. </span>NumPy (2): 行列・テンソル<a class="headerlink" href="#numpy-2" title="Permalink to this headline">¶</a></h1>
+<p>このノートブックでは<code class="docutils literal notranslate"><span class="pre">numpy</span></code>モジュールのエイリアス（短縮表記）として<code class="docutils literal notranslate"><span class="pre">np</span></code>を用いる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">17.1. </span>行列のオブジェクト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>行列も<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">np.array</a>で作成できる。以下のコードは<span class="math notranslate nohighlight">\(3 \times 4\)</span>の行列</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pmb{X} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 3 &amp; 4 &amp; 5 \\
+3 &amp; 4 &amp; 5 &amp; 6
+\end{array}\right)
+\end{split}\]</div>
+<p>を定義している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3, 4],
+       [2, 3, 4, 5],
+       [3, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>作成されたオブジェクトの型は<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の次元数（軸の数）は2（<code class="docutils literal notranslate"><span class="pre">x</span></code>は2次元の行列）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>各次元の要素数を表すタプル。<code class="docutils literal notranslate"><span class="pre">x</span></code>の1次元目には<span class="math notranslate nohighlight">\(3\)</span>個、2次元目には<span class="math notranslate nohighlight">\(4\)</span>個の要素が格納されている。すなわち、<span class="math notranslate nohighlight">\(3 \times 4\)</span>の行列であることを表している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>オブジェクトに含まれる要素数。<code class="docutils literal notranslate"><span class="pre">x</span></code>は<span class="math notranslate nohighlight">\(3 \times 4\)</span>の行列なので、全要素数は<span class="math notranslate nohighlight">\(12\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code>の各要素は整数である。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">17.2. </span>行列の要素<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pmb{X} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 3 &amp; 4 &amp; 5 \\
+3 &amp; 4 &amp; 5 &amp; 6
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の<span class="math notranslate nohighlight">\(2\)</span>行<span class="math notranslate nohighlight">\(1\)</span>列目の要素<span class="math notranslate nohighlight">\(X_{2,1}\)</span>（インデックスが<span class="math notranslate nohighlight">\(0\)</span>から始まることに注意）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>要素<span class="math notranslate nohighlight">\(X_{2,1}\)</span>に以下のようにアクセスすることも可能。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の1次元目（行）で1番目の行<span class="math notranslate nohighlight">\(\pmb{X}_{1,:}\)</span>を取り出す（1行目の行ベクトル）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の2次元目（列）で1番目の列<span class="math notranslate nohighlight">\(\pmb{X}_{:,1}\)</span>を取り出す（1列目の列ベクトル）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の1行目および1列目まで<span class="math notranslate nohighlight">\(\pmb{X}_{0:2,0:2}\)</span>を取り出す（つまり、左上から<span class="math notranslate nohighlight">\(2 \times 2\)</span>の部分を取り出す）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
+       [2, 3]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>スライスで取り出す要素をリストで指定してもよい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 3, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の要素<span class="math notranslate nohighlight">\(X_{0,0} \leftarrow 0\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 2, 3, 4],
+       [2, 3, 4, 5],
+       [3, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の0行目の行ベクトル<span class="math notranslate nohighlight">\(\pmb{X}_{0,:} \leftarrow \boldsymbol{0}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0],
+       [2, 3, 4, 5],
+       [3, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列<span class="math notranslate nohighlight">\(\pmb{X}\)</span>の0列の列ベクトル<span class="math notranslate nohighlight">\(\pmb{X}_{:,0} \leftarrow \boldsymbol{0}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0],
+       [0, 3, 4, 5],
+       [0, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\pmb{X}_{0,:} \leftarrow \left(\begin{array}{c}
+0 &amp; 1 &amp; 2 &amp; 3
+\end{array}\right)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2, 3],
+       [0, 3, 4, 5],
+       [0, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">17.3. </span>行列の算術演算<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pmb{X} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right),
+\pmb{Y} = \left(\begin{array}{c}
+1 &amp; 3 &amp; 5 \\
+2 &amp; 4 &amp; 6 \\
+\end{array}\right)
+\end{split}\]</div>
+<p>に対して、様々な演算を見ていく。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の和</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pmb{X} + \pmb{Y} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) + \left(\begin{array}{c}
+1 &amp; 3 &amp; 5 \\
+2 &amp; 4 &amp; 6 \\
+\end{array}\right) = \left(\begin{array}{c}
+1+1 &amp; 2+3 &amp; 3+5 \\
+2+2 &amp; 3+4 &amp; 4+6 \\
+\end{array}\right) = \left(\begin{array}{c}
+2 &amp; 5 &amp; 8 \\
+4 &amp; 7 &amp; 10 \\
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.,  5.,  8.],
+       [ 4.,  7., 10.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の差</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pmb{X} - \pmb{Y} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) - \left(\begin{array}{c}
+1 &amp; 3 &amp; 5 \\
+2 &amp; 4 &amp; 6 \\
+\end{array}\right) = \left(\begin{array}{c}
+1-1 &amp; 2-3 &amp; 3-5 \\
+2-2 &amp; 3-4 &amp; 4-6 \\
+\end{array}\right) = \left(\begin{array}{c}
+0 &amp; -1 &amp; -2 \\
+0 &amp; -1 &amp; -2 \\
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0., -1., -2.],
+       [ 0., -1., -2.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列と行列のアダマール積</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\pmb{X} \odot \pmb{Y} = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) \odot \left(\begin{array}{c}
+1 &amp; 3 &amp; 5 \\
+2 &amp; 4 &amp; 6 \\
+\end{array}\right) = \left(\begin{array}{c}
+1 \times 1 &amp; 2 \times 3 &amp; 3 \times 5 \\
+2 \times 2 &amp; 3 \times 4 &amp; 4 \times 6 \\
+\end{array}\right) = \left(\begin{array}{c}
+1 &amp; 6 &amp; 15 \\
+4 &amp; 12 &amp; 24 \\
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.,  6., 15.],
+       [ 4., 12., 24.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>スカラーと行列の和</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+1 + \pmb{X} = \left(\begin{array}{c}
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1
+\end{array}\right) + \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) = \left(\begin{array}{c}
+2 &amp; 3 &amp; 4 \\
+3 &amp; 4 &amp; 5 \\
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2., 3., 4.],
+       [3., 4., 5.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>スカラーと行列の差</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+1 - \pmb{X} = \left(\begin{array}{c}
+1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1
+\end{array}\right) - \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) = \left(\begin{array}{c}
+0 &amp; -1 &amp; -2 \\
+-1 &amp; -2 &amp; -3 \\
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0., -1., -2.],
+       [-1., -2., -3.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列のスカラー倍</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+2\pmb{X} = \left(\begin{array}{c}
+2 &amp; 2 &amp; 2 \\
+2 &amp; 2 &amp; 2
+\end{array}\right) \odot \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) = \left(\begin{array}{c}
+2 \times 1 &amp; 2 \times 2 &amp; 2 \times 3 \\
+2 \times 2 &amp; 2 \times 3 &amp; 2 \times 4
+\end{array}\right) = \left(\begin{array}{c}
+2 &amp; 4 &amp; 6 \\
+4 &amp; 6 &amp; 8 \\
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2., 4., 6.],
+       [4., 6., 8.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>転置行列</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Z = Y^\top = \left(\begin{array}{c}
+1 &amp; 3 &amp; 5 \\
+2 &amp; 4 &amp; 6 \\
+\end{array}\right)^\top
+= \left(\begin{array}{c}
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 2.],
+       [3., 4.],
+       [5., 6.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列積</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+XZ &amp;= \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right) \left(\begin{array}{c}
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6
+\end{array}\right) \\
+&amp;= \left(\begin{array}{c}
+1 \times 1 + 2 \times 3 + 3 \times 5 &amp; 1 \times 2 + 2 \times 4 + 3 \times 6 \\
+2 \times 1 + 3 \times 3 + 4 \times 5 &amp; 2 \times 2 + 3 \times 4 + 4 \times 6 \\
+\end{array}\right) \\
+&amp;= \left(\begin{array}{c}
+22 &amp; 28 \\
+31 &amp; 40 \\
+\end{array}\right)
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[22., 28.],
+       [31., 40.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列積<span class="math notranslate nohighlight">\(XZ\)</span>は<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>演算子で書くこともできる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">@</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[22., 28.],
+       [31., 40.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の累乗</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X^2 = \left(\begin{array}{c}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 4
+\end{array}\right)^2 = \left(\begin{array}{c}
+1^2 &amp; 2^2 &amp; 3^2 \\
+2^2 &amp; 3^2 &amp; 4^2
+\end{array}\right) = \left(\begin{array}{c}
+1 &amp; 4 &amp; 9 \\
+4 &amp; 9 &amp; 16
+\end{array}\right)
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.,  4.,  9.],
+       [ 4.,  9., 16.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素数が合わないなどで、演算が実行できないときはエラーとなる。例えば行列積<span class="math notranslate nohighlight">\(XY\)</span>を計算するには、<span class="math notranslate nohighlight">\(X\)</span>の列の数と<span class="math notranslate nohighlight">\(Y\)</span>の行の数が一致する必要がある。</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">@</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">31</span><span class="o">-</span><span class="n">e6c6f87ceb97</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span> <span class="o">@</span> <span class="n">y</span>
+
+<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 2 is different from 3)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">17.4. </span>行列の様々な作成方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>零行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(X\)</span>と同じ形状の零行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0],
+       [0, 0],
+       [0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>要素がすべて<span class="math notranslate nohighlight">\(1\)</span>の行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(X\)</span>と同じ形状で要素がすべて<span class="math notranslate nohighlight">\(1\)</span>の行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1],
+       [1, 1],
+       [1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>任意の値で初期化した行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">-</span><span class="mf">2.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2., -2., -2., -2.],
+       [-2., -2., -2., -2.],
+       [-2., -2., -2., -2.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(X\)</span>と同じ形状で任意の値で初期化した行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2, -2],
+       [-2, -2],
+       [-2, -2]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>単位行列（必ず正方行列となる）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>対角要素が<span class="math notranslate nohighlight">\(1\)</span>、それ以外の要素が<span class="math notranslate nohighlight">\(0\)</span>である行列（正方行列でなくても作成できる）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.eye.html">np.eye</a>でも単位行列を作成できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>ベクトルから形状を変更して行列にする例。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.reshape.html#numpy.ndarray.reshape">reshape</a>メソッドにおいて、いずれかの次元の要素数を-1とすると、他の次元の要素数に基づいてその次元の要素数が推定される。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10, 11]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\([0, 1)\)</span>の範囲の一様分布からランダムに要素をサンプルして作った行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.41138273, 0.56472476, 0.74019377, 0.21415386],
+       [0.72671417, 0.00608295, 0.73117914, 0.97736548],
+       [0.27531559, 0.69205105, 0.1033887 , 0.94401989]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>標準正規分布（平均<span class="math notranslate nohighlight">\(0\)</span>、分散<span class="math notranslate nohighlight">\(1\)</span>の正規分布）からランダムに要素を抽出して作った行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.10454056, -0.14676112, -0.12848028,  0.62593397],
+       [-0.82940938, -0.45294596, -0.3850291 , -1.75512478],
+       [ 0.28350437,  0.54926243, -0.66035861, -0.50153151]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>正規分布（以下の例では平均<span class="math notranslate nohighlight">\(0.5\)</span>、分散<span class="math notranslate nohighlight">\(2\)</span>の正規分布）からランダムに要素を抽出して作った行列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.05489919,  0.4101351 ,  2.20940252, -1.12757369],
+       [ 0.18863236,  0.20804204, -0.58426747,  1.76459683],
+       [-2.4958973 ,  4.89609212, -3.17816385,  1.27884234]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">17.5. </span>数学関数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>ベクトルのときに紹介した数学関数は行列でも使える。ただし、必要に応じて演算を行う単位を軸（axis）として指定する。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+    <span class="p">[</span> <span class="mi">11</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の和。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の和。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20, 19, 18, 21])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の和。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([26, 20, 32])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の積。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>479001600
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の積。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 88, 120, 162, 280])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の積。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 432,  336, 3300])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の累積和。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1, 13, 22, 26, 34, 36, 39, 46, 57, 62, 68, 78])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の累積和。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1, 12,  9,  4],
+       [ 9, 14, 12, 11],
+       [20, 19, 18, 21]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の累積和。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1, 13, 22, 26],
+       [ 8, 10, 13, 20],
+       [11, 16, 22, 32]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の累積積。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([        1,        12,       108,       432,      3456,      6912,
+           20736,    145152,   1596672,   7983360,  47900160, 479001600])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の累積積。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  1,  12,   9,   4],
+       [  8,  24,  27,  28],
+       [ 88, 120, 162, 280]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の累積積。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[   1,   12,  108,  432],
+       [   8,   16,   48,  336],
+       [  11,   55,  330, 3300]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の平均。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の平均。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6.66666667, 6.33333333, 6.        , 7.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の平均。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6.5, 5. , 8. ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の分散。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.916666666666666
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の分散。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([17.55555556, 17.55555556,  6.        ,  6.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の分散。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([18.25,  6.5 ,  6.5 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の標準偏差。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.452052529534663
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）の標準偏差。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.18993503, 4.18993503, 2.44948974, 2.44948974])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）の標準偏差。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.27200187, 2.54950976, 2.54950976])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の最小値。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）を取り出し、各要素の最小値を取り出したベクトル。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）を取り出し、各要素の最小値を取り出したベクトル。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の要素の最大値。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最初の次元のベクトル（行ベクトル）を取り出し、各要素の最大値を取り出したベクトル。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([11, 12,  9, 10])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の2番目の次元のベクトル（列ベクトル）を取り出し、各要素の最大値を取り出したベクトル。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12,  8, 11])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最小値に対応するインデックス番号。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">argmin</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の最大値に対応するインデックス番号。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">17.6. </span>ユニバーサル関数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>ベクトルの場合と同様に、行列に対して<a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">ユニバーサル関数</a>を適用すると、要素ごとに数学的な計算を行う。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">90</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>累乗（<code class="docutils literal notranslate"><span class="pre">**</span></code>と同じ）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1],
+       [ 1, 16]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>平方根。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 1.],
+       [1., 4.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(e\)</span>に対する指数</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        , 2.71828183],
+       [0.36787944, 7.3890561 ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>自然対数</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.,  1.],
+       [-1.,  2.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>三角関数</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">/</span> <span class="mi">360</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.0000000e+00,  1.0000000e+00],
+       [-1.0000000e+00,  1.2246468e-16]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">/</span> <span class="mi">360</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.000000e+00,  6.123234e-17],
+       [ 6.123234e-17, -1.000000e+00]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span> <span class="o">/</span> <span class="mi">360</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00000000e+00,  1.63312394e+16],
+       [-1.63312394e+16, -1.22464680e-16]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>その他、要素の切り捨て、切り上げ、四捨五入などもベクトルの場合と同様なので省略する。</p>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">17.7. </span>行列の連結<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
+       [2, 3],
+       [3, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.],
+       [1.],
+       [1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列・ベクトルを横に（水平に）連結。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 2., 1.],
+       [2., 3., 1.],
+       [3., 4., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列・ベクトルを縦に（垂直に）連結。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1],
+       [1, 2],
+       [2, 3],
+       [3, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">17.8. </span>ビュー<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>元の行列・ベクトル（np.ndarray）からスライスで抽出した部分はビュー、すなわち元のオブジェクトへの参照となり、元のオブジェクトとメモリ領域を共有している。以下の例では行列<code class="docutils literal notranslate"><span class="pre">x</span></code>から行ベクトル<code class="docutils literal notranslate"><span class="pre">y</span></code>をビューとして抽出している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 4, 5, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>抽出されたビュー<code class="docutils literal notranslate"><span class="pre">y</span></code>の要素を変更してみる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 4, 5, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>元の行列<code class="docutils literal notranslate"><span class="pre">x</span></code>の該当する箇所<code class="docutils literal notranslate"><span class="pre">x[2,0]</span></code>も変更されている。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3, 4],
+       [2, 3, 4, 5],
+       [0, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>ビュー<code class="docutils literal notranslate"><span class="pre">y</span></code>の全ての要素を変更する。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<p>元の行列<code class="docutils literal notranslate"><span class="pre">x</span></code>の行ベクトル<code class="docutils literal notranslate"><span class="pre">x[2]</span></code>も変更されている。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3, 4],
+       [2, 3, 4, 5],
+       [0, 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>なお、ビュー<code class="docutils literal notranslate"><span class="pre">y</span></code>の全体を変更しようとして以下のコードを実行すると、<code class="docutils literal notranslate"><span class="pre">y</span></code>の要素が変更されるのではなく、<code class="docutils literal notranslate"><span class="pre">y</span></code>に<code class="docutils literal notranslate"><span class="pre">1</span></code>が代入されるだけなので混同しないこと。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>当然、元の行列<code class="docutils literal notranslate"><span class="pre">x</span></code>の要素にも変化がない。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3, 4],
+       [2, 3, 4, 5],
+       [0, 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code>の部分行列をスライスで取り出した場合も挙動は同じ。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
+       [2, 3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0],
+       [0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code>全体のビューは<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.view.html">view</a>メソッドで作成することもできる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 3, 4],
+       [0, 0, 4, 5],
+       [0, 0, 0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1, 1, 1],
+       [1, 1, 1, 1],
+       [1, 1, 1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1, 1, 1],
+       [1, 1, 1, 1],
+       [1, 1, 1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">17.9. </span>テンソル<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>スカラー（次元数<span class="math notranslate nohighlight">\(0\)</span>）やベクトル（次元数<span class="math notranslate nohighlight">\(1\)</span>）、行列（次元数<span class="math notranslate nohighlight">\(2\)</span>）を一般化したものをテンソルと呼ぶ。以下のコードは3次元のテンソル<span class="math notranslate nohighlight">\(\mathsf{X}\)</span>を定義している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+    <span class="p">],</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列の次元数（軸の数）は3（<span class="math notranslate nohighlight">\(\mathsf{X}\)</span>は3次元のテンソル）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>各次元の要素数を表すタプル。<span class="math notranslate nohighlight">\(\mathsf{X}\)</span>の1次元目には<span class="math notranslate nohighlight">\(2\)</span>個、2次元目には<span class="math notranslate nohighlight">\(2\)</span>個、3次元目には<span class="math notranslate nohighlight">\(3\)</span>個の要素が格納されている。すなわち、<span class="math notranslate nohighlight">\(2 \times 2 \times 3\)</span>の行列であることを表している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\mathsf{X}\)</span>の1次元目で1番目の要素（＝行列）を取り出したスライス<span class="math notranslate nohighlight">\(\mathsf{X}_{1,:,:}\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 4, 5],
+       [5, 6, 7]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>これは以下のように書くこともできる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 4, 5],
+       [5, 6, 7]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\mathsf{X}\)</span>の3次元目で1番目の要素を取り出したスライス<span class="math notranslate nohighlight">\(\mathsf{X}_{:,:,1}\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 3],
+       [4, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>これは以下のように書くこともできる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 3],
+       [4, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>行列からテンソルへの変換。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
+       [3, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[1, 2],
+        [3, 4]]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[1, 2]],
+
+       [[3, 4]]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="numpy1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">16. </span>NumPy (1): ベクトル</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="plot.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Matplotlib: グラフの描画</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By 岡崎 直観 (Naoaki Okazaki)<br/>
+        
+            &copy; Copyright 2020-2021, クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0).<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

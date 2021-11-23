@@ -1,0 +1,1198 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. 実行制御 &#8212; Python早見帳</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. 関数" href="function.html" />
+    <link rel="prev" title="2. 変数" href="variable.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python早見帳</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   はじめに
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  基礎
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="calc.html">
+   1. 基本的な計算
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="variable.html">
+   2. 変数
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. 実行制御
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function.html">
+   4. 関数
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="module.html">
+   5. モジュール
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  データ構造
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="list.html">
+   6. リスト
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tuple.html">
+   7. タプル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="str.html">
+   8. 文字列
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dict.html">
+   9. 辞書
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="set.html">
+   10. 集合
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  発展
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="file.html">
+   11. ファイルの入出力
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="immutable.html">
+   12. 可変と不変
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="class.html">
+   13. クラス
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exception.html">
+   14. 例外
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iterator.html">
+   15. イテレータとジェネレータ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  科学技術計算とデータ分析
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy1.html">
+   16. NumPy (1): ベクトル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy2.html">
+   17. NumPy (2): 行列・テンソル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot.html">
+   18. Matplotlib: グラフの描画
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  付録
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter.html">
+   Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   参考資料
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/control.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2Fcontrol.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=tree/docs/control.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for">
+   3.1. for文（反復処理）
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if">
+   3.2. if文（条件分岐）
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     3.2.1. 比較演算とブール値
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     3.2.2. 論理演算
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     3.2.3. 条件式
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while">
+   3.3. while文（条件付き反復）
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continue">
+   3.4. continue文
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#break">
+   3.5. break文
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forwhileelse">
+   3.6. for文およびwhile文のelse節
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">3. </span>実行制御<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="for">
+<h2><span class="section-number">3.1. </span>for文（反復処理）<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<p>Pythonでは<span class="math notranslate nohighlight">\(i = 0, 1, \dots, 9\)</span>の反復を、<a class="reference external" href="https://docs.python.org/ja/3/reference/compound_stmts.html#the-for-statement">for</a>文を使い、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># 各反復における処理</span>
+</pre></div>
+</div>
+<p>と表現する。反復する処理はインデントを一つ下げて記述し、反復終了後の処理は元のインデントで記述する。インデントが反復処理の範囲を明示する手段となっていることに注意せよ。なお、C言語では、反復処理を次のように表現する（各反復における処理は<code class="docutils literal notranslate"><span class="pre">{</span></code>と<code class="docutils literal notranslate"><span class="pre">}</span></code>で挟まれているブロックで表現され、インデントは任意である）。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 各反復における処理</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>なお、多くのエディタでは、<code class="docutils literal notranslate"><span class="pre">[Tab]</span></code>キーでインデントを一つ下げ、<code class="docutils literal notranslate"><span class="pre">[Back</span> <span class="pre">Space]</span></code>キーでインデントを一つ上げることができる。インデントは空白文字4文字で表現されることが多いが、ソースコード中で一貫性が保たれていれば、インデントを表現する空白文字数は任意である（例えば2文字でもよい）。ただ、<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">スタイルガイド（PEP 8）</a>によると4文字のインデントが推奨されている。</p>
+<p>以下のコードは文字wを10回出力する。<a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#print">print</a>関数において<code class="docutils literal notranslate"><span class="pre">end=''</span></code>を指定して、改行を抑制している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wwwwwwwwww
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(i=0, 1, \dots, 9\)</span>に対して、<span class="math notranslate nohighlight">\(1089 \times i\)</span>を計算する。print関数に複数の式をカンマ区切りで与えると、その値がスペース区切りで出力される。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1089</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0
+1 1089
+2 2178
+3 3267
+4 4356
+5 5445
+6 6534
+7 7623
+8 8712
+9 9801
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(i = 1, 2, \dots, 9\)</span>に対して反復を行うには、<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">10):</span></code>とする（<span class="math notranslate nohighlight">\(i=1\)</span>と<span class="math notranslate nohighlight">\(i=9\)</span>、<span class="math notranslate nohighlight">\(i=2\)</span>と<span class="math notranslate nohighlight">\(i=8\)</span>のときの計算結果を見比べると面白い）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1089</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1089
+2 2178
+3 3267
+4 4356
+5 5445
+6 6534
+7 7623
+8 8712
+9 9801
+</pre></div>
+</div>
+</div>
+</div>
+<p>次に、<span class="math notranslate nohighlight">\(1\)</span>から<span class="math notranslate nohighlight">\(10\)</span>までの自然数の和、すなわち<span class="math notranslate nohighlight">\(\sum_{i=1}^{10}i\)</span>を求めたい。以下のコードは、変数<code class="docutils literal notranslate"><span class="pre">s</span></code>を定義せずに<code class="docutils literal notranslate"><span class="pre">i</span></code>の値を加算しようとしたため、「<code class="docutils literal notranslate"><span class="pre">s</span></code>が未定義である」というエラーが発生する。</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2545</span><span class="o">/</span><span class="mf">2530092115.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">s</span>
+
+<span class="ne">NameError</span>: name &#39;s&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>この問題に対処するには、反復を始める前に<code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0</span></code>を実行し、変数<code class="docutils literal notranslate"><span class="pre">s</span></code>に初期値<span class="math notranslate nohighlight">\(0\)</span>を代入しておけばよい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+<p>反復の範囲を<span class="math notranslate nohighlight">\(1\)</span>から<span class="math notranslate nohighlight">\(20\)</span>までの奇数とするには、<code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">21,</span> <span class="pre">2)</span></code>とする。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1
+3 4
+5 9
+7 16
+9 25
+11 36
+13 49
+15 64
+17 81
+19 100
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if">
+<h2><span class="section-number">3.2. </span>if文（条件分岐）<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h2>
+<p>条件に応じて異なる処理を実行するには<a class="reference external" href="https://docs.python.org/ja/3/reference/compound_stmts.html#the-if-statement">if</a>文を使う。if文は、与えられた条件が満たされれば、インデントされた箇所のコードを実行する。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">条件</span><span class="p">:</span>
+    <span class="c1"># 条件が満たされた時に実行する処理</span>
+</pre></div>
+</div>
+<p>なお、C言語では、条件分岐を以下のように表現する（条件が満たされたときの処理は<code class="docutils literal notranslate"><span class="pre">{</span></code>と<code class="docutils literal notranslate"><span class="pre">}</span></code>で挟まれているブロックで表現され、インデントは任意である）。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 条件が満たされた時に実行する処理</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>以下のコードでは、<code class="docutils literal notranslate"><span class="pre">37.5</span> <span class="pre">&lt;=</span> <span class="pre">x</span></code>の評価結果は偽なので、何も出力されない（試しに<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">38.0</span></code>などに変更して実行してみるとよい）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">37.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mf">37.5</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がある&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>条件が満たされないときに実行する処理は、else節に記述する。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mf">37.5</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がある&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がない&#39;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>熱がない
+</pre></div>
+</div>
+</div>
+</div>
+<p>条件が満たされないとき、さらに別の条件を確認したいときは、elif節を使う。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mf">37.5</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がある&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="mf">37.0</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;微熱がある&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がない&#39;</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>微熱がある
+</pre></div>
+</div>
+</div>
+</div>
+<p>なお、if文において間違って代入文を用いるとエラーとなる（C言語ではエラーにならず、気づきにくいバグの原因となる）。</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">37.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がギリギリある&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2545/4148477177.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">37.5</span><span class="p">:</span>
+         <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">3.2.1. </span>比較演算とブール値<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">37.5</span> <span class="pre">&lt;=</span> <span class="pre">x</span></code>のような比較演算は値を比較した結果をブール値 <code class="docutils literal notranslate"><span class="pre">True</span></code> または <code class="docutils literal notranslate"><span class="pre">False</span></code> で返す。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>は等しい（代入文における<code class="docutils literal notranslate"><span class="pre">=</span></code>と誤用しないように注意せよ）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>は等しくない</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>は<code class="docutils literal notranslate"><span class="pre">y</span></code>よりも小さい</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>は<code class="docutils literal notranslate"><span class="pre">y</span></code>よりも大きい</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>は<code class="docutils literal notranslate"><span class="pre">y</span></code>よりも小さいか等しい</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>は<code class="docutils literal notranslate"><span class="pre">y</span></code>よりも大きいか等しい</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">!=</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>これまで見てきたif文による条件分岐は、以下の処理の合成である。</p>
+<ol class="simple">
+<li><p>if文に書かれている比較演算を評価する</p></li>
+<li><p>その評価結果が<code class="docutils literal notranslate"><span class="pre">True</span></code>ならばif節を、<code class="docutils literal notranslate"><span class="pre">False</span></code>ならばelse節を実行する</p></li>
+</ol>
+<p>例えば、以下のコードでは<code class="docutils literal notranslate"><span class="pre">37.5</span> <span class="pre">&lt;=</span> <span class="pre">x</span></code>の比較演算を評価し、その結果が<code class="docutils literal notranslate"><span class="pre">False</span></code>であるのでelse節が実行される。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mf">37.5</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がある&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;熱がない&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>熱がない
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">3.2.2. </span>論理演算<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>否定は<code class="docutils literal notranslate"><span class="pre">not</span></code>で表現する（以下の例で<code class="docutils literal notranslate"><span class="pre">not</span></code>を使うのは分かりにくいので、それぞれ、<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">37.5</span></code>および<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">37.5</span></code>と書くべきである）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">x</span> <span class="o">==</span> <span class="mf">37.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>真理値<code class="docutils literal notranslate"><span class="pre">True</span></code>と<code class="docutils literal notranslate"><span class="pre">False</span></code>は組み込み定数として用意されている。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>複数の条件の論理積を取るには、<code class="docutils literal notranslate"><span class="pre">and</span></code>を用いる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mf">37.0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">37.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;微熱がある&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>微熱がある
+</pre></div>
+</div>
+</div>
+</div>
+<p>なお、上のコードは次のように比較演算子の連結として表現できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mf">37.0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">37.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;微熱がある&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>微熱がある
+</pre></div>
+</div>
+</div>
+</div>
+<p>複数の条件の論理和を取るには、<code class="docutils literal notranslate"><span class="pre">or</span></code>を用いる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぽん&#39;</span>
+<span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぼん&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ほん&#39;</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ぼん&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>なお、上のコードは次のように<code class="docutils literal notranslate"><span class="pre">in</span></code>演算子とタプル<code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">...)</span></code>で表現することができる（タプルの詳細についてはここでは説明しない）。<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">in</span> <span class="pre">(1,</span> <span class="pre">6,</span> <span class="pre">8,</span> <span class="pre">10)</span></code>は<code class="docutils literal notranslate"><span class="pre">n</span></code>が集合<span class="math notranslate nohighlight">\(\{1, 6, 8, 10\}\)</span>に含まれる場合は真、含まれない場合は偽となる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぽん&#39;</span>
+<span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぼん&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ほん&#39;</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ぼん&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">in</span></code>演算子の否定として、<code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>演算子が用意されている。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>上の条件は以下のように書くこともできるが、上の書き方の方が分かりやすい（英語としてそのまま読める）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>比較演算子や論理演算子の優先順位は、<code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">not</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">and</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">or</span></code>である。優先順位は括弧で変更できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">3.2.3. </span>条件式<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>代入とif文を組み合わせた書き方である。C言語の三項演算子（<code class="docutils literal notranslate"><span class="pre">条件</span> <span class="pre">?</span> <span class="pre">真の場合</span> <span class="pre">:</span> <span class="pre">偽の場合</span></code>）に対応する。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;偶数&#39;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;奇数&#39;</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;奇数&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>複数の条件式をネストして用いることもできる。以下の例では、<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">in</span> <span class="pre">(1,</span> <span class="pre">6,</span> <span class="pre">8,</span> <span class="pre">10)</span></code>の条件の評価が<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">3</span></code>よりも先に行われる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぽん&#39;</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;ぼん&#39;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="s1">&#39;ほん&#39;</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ほん&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while">
+<h2><span class="section-number">3.3. </span>while文（条件付き反復）<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.python.org/ja/3/reference/compound_stmts.html#the-while-statement">while</a>文は、与えられた条件が満たされている間、インデントが一つ下がった箇所のコードを繰り返し実行する。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">条件</span><span class="p">:</span>
+    <span class="c1"># 条件が満たされている間に反復する処理</span>
+</pre></div>
+</div>
+<p>なお、C言語での書き方も同様である（条件が満たされている間の処理は<code class="docutils literal notranslate"><span class="pre">{</span></code>と<code class="docutils literal notranslate"><span class="pre">}</span></code>で挟まれているブロックで表現され、インデントは任意である）。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 条件が満たされた時に実行する処理</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>変数<span class="math notranslate nohighlight">\(n\)</span>に任意の正の整数を代入し、<span class="math notranslate nohighlight">\(n\)</span>が偶数ならば2で割り、<span class="math notranslate nohighlight">\(n\)</span>が奇数ならば<span class="math notranslate nohighlight">\(n \leftarrow 3n+1\)</span>とする処理を、<span class="math notranslate nohighlight">\(n=1\)</span>になるまで繰り返す（<a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A9%E3%83%83%E3%83%84%E3%81%AE%E5%95%8F%E9%A1%8C">コラッツの問題</a>）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18 9 28 14 7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title">無限ループの強制終了</p>
+<p>無限ループはプログラムが停止しなくなる恐れがある。もしプログラムが停止しなくなった場合は、Pythonの対話型シェルであればキーボードで<code class="docutils literal notranslate"><span class="pre">[Ctrl]+[c]</span></code>を押し、Jupyter Notebookであればメニューから”Kernel” - “Interrupt Kernel”を選択し、プログラムの実行を強制的に停止できる。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code>で無限ループとなる。ループから抜けるには<a class="reference external" href="https://docs.python.org/ja/3/reference/simple_stmts.html#the-break-statement">break</a>文を使う。</p>
+<p>以下のプログラムは、<span class="math notranslate nohighlight">\(f(x) = x^2 - 2 = 0\)</span>の解の一つである<span class="math notranslate nohighlight">\(\sqrt{2}\)</span>を<a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95">Newton-Raphson法</a>で求める（<code class="docutils literal notranslate"><span class="pre">fx</span></code>と<code class="docutils literal notranslate"><span class="pre">gx</span></code>はそれぞれ、<span class="math notranslate nohighlight">\(f(x)\)</span>、<span class="math notranslate nohighlight">\(f'(x)\)</span>の値を格納する）。より正確には、Newton-Raphson法の更新式、</p>
+<div class="math notranslate nohighlight">
+\[
+x \leftarrow x - \frac{f(x)}{f'(x)}
+\]</div>
+<p>を繰り返し適用し、<span class="math notranslate nohighlight">\(|f(x)| &lt; 10^{-8}\)</span>が満たされたときに無限ループから抜ける。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="n">gx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fx</span><span class="p">)</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mf">1e-8</span> <span class="o">&lt;</span> <span class="n">fx</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">x</span> <span class="o">-=</span> <span class="n">fx</span> <span class="o">/</span> <span class="n">gx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 -1
+1.5 0.25
+1.4166666666666667 0.006944444444444642
+1.4142156862745099 6.007304882871267e-06
+1.4142135623746899 4.510614104447086e-12
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="continue">
+<h2><span class="section-number">3.4. </span>continue文<a class="headerlink" href="#continue" title="Permalink to this headline">¶</a></h2>
+<p>for文やwhile文による反復中に<a class="reference external" href="https://docs.python.org/ja/3/reference/simple_stmts.html#the-break-statement">continue</a>文を実行すると、以降の処理を実行せずに次の反復に移る（C言語と同じ）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">a</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 = 2 * 2
+6 = 2 * 3
+8 = 2 * 4
+9 = 3 * 3
+10 = 2 * 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="break">
+<h2><span class="section-number">3.5. </span>break文<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h2>
+<p>for文やwhile文による反復中に<a class="reference external" href="https://docs.python.org/ja/3/reference/simple_stmts.html#the-break-statement">break</a>文を実行すると、以降の処理を実行せずに反復を終了する（C言語と同じ）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="n">a</span><span class="p">)</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 = 2 * 2
+6 = 2 * 3
+8 = 2 * 4
+9 = 3 * 3
+10 = 2 * 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="forwhileelse">
+<h2><span class="section-number">3.6. </span>for文およびwhile文のelse節<a class="headerlink" href="#forwhileelse" title="Permalink to this headline">¶</a></h2>
+<p>for文による反復において、反復が最後まで到達した後に実行する処理をelse節に記述できる。while文による反復では、条件が満たされなくなったときの処理をelse節に記述できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="n">a</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39;は素数&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 は素数
+3 は素数
+4 = 2 * 2
+5 は素数
+6 = 2 * 3
+7 は素数
+8 = 2 * 4
+9 = 3 * 3
+10 = 2 * 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="variable.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>変数</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="function.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>関数</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By 岡崎 直観 (Naoaki Okazaki)<br/>
+        
+            &copy; Copyright 2020-2021, クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0).<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
