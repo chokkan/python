@@ -6,8 +6,8 @@
 #######################################################################################
 # Book settings
 title: Python早見帳
-author: 岡崎 直観 (Naoaki Okazaki)
-copyright: "2020-2021, クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0)"
+author: ""
+copyright: "2020-2021 by 岡崎 直観 (Naoaki Okazaki), クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0)"
 exclude_patterns: [_build, material, README.md, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 only_build_toc_files: true
 
@@ -56,6 +56,8 @@ html:
   comments:
     hypothesis              : false
     utterances              : false
+  extra_footer: |
+    © Copyright 2020-2021 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
 
 #######################################################################################
 # Launch button settings
@@ -69,3 +71,7 @@ launch_buttons:
 repository:
   url: https://github.com/chokkan/python  # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
+
+sphinx:
+  config:
+    html_show_copyright: false
