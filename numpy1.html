@@ -405,10 +405,6 @@
 <div class="section" id="id1">
 <h2><span class="section-number">16.1. </span>作成<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>NumPyのベクトルを<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">np.array</a>で作成する。以下のコードは2次元ベクトル</p>
-<div class="margin sidebar">
-<p class="sidebar-title">インデックス番号</p>
-<p>数学において先頭要素のインデックス番号は<span class="math notranslate nohighlight">\(1\)</span>とすることが多いが、Pythonでは先頭要素のインデックス番号が<span class="math notranslate nohighlight">\(0\)</span>である。両方が混在すると紛らわしいので、ベクトルや行列を数式で表現するときも、先頭要素のインデックス番号は<span class="math notranslate nohighlight">\(0\)</span>とする。</p>
-</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \boldsymbol{x} = \left(\begin{array}{c}
@@ -422,6 +418,10 @@ x_2
 \end{array}\right)
 \end{split}\]</div>
 <p>を作成し、変数<code class="docutils literal notranslate"><span class="pre">x</span></code>に代入する。</p>
+<div class="warning admonition">
+<p class="admonition-title">インデックス番号</p>
+<p>数学において先頭要素のインデックス番号は<span class="math notranslate nohighlight">\(1\)</span>とすることが多いが、Pythonでは先頭要素のインデックス番号が<span class="math notranslate nohighlight">\(0\)</span>である。両方が混在すると紛らわしいので、この資料でベクトルや行列を数式で表現するときも、先頭要素のインデックス番号は<span class="math notranslate nohighlight">\(0\)</span>とする。</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>

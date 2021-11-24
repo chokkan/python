@@ -412,7 +412,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<div class="tip admonition">
+<p class="admonition-title">インデントの文字数</p>
 <p>なお、多くのエディタでは、<code class="docutils literal notranslate"><span class="pre">[Tab]</span></code>キーでインデントを一つ下げ、<code class="docutils literal notranslate"><span class="pre">[Back</span> <span class="pre">Space]</span></code>キーでインデントを一つ上げることができる。インデントは空白文字4文字で表現されることが多いが、ソースコード中で一貫性が保たれていれば、インデントを表現する空白文字数は任意である（例えば2文字でもよい）。ただ、<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">スタイルガイド（PEP 8）</a>によると4文字のインデントが推奨されている。</p>
+</div>
 <p>以下のコードは文字wを10回出力する。<a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#print">print</a>関数において<code class="docutils literal notranslate"><span class="pre">end=''</span></code>を指定して、改行を抑制している。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1022,10 +1025,6 @@
 </div>
 </div>
 </div>
-<div class="margin sidebar">
-<p class="sidebar-title">無限ループの強制終了</p>
-<p>無限ループはプログラムが停止しなくなる恐れがある。もしプログラムが停止しなくなった場合は、Pythonの対話型シェルであればキーボードで<code class="docutils literal notranslate"><span class="pre">[Ctrl]+[c]</span></code>を押し、Jupyter Notebookであればメニューから”Kernel” - “Interrupt Kernel”を選択し、プログラムの実行を強制的に停止できる。</p>
-</div>
 <p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code>で無限ループとなる。ループから抜けるには<a class="reference external" href="https://docs.python.org/ja/3/reference/simple_stmts.html#the-break-statement">break</a>文を使う。</p>
 <p>以下のプログラムは、<span class="math notranslate nohighlight">\(f(x) = x^2 - 2 = 0\)</span>の解の一つである<span class="math notranslate nohighlight">\(\sqrt{2}\)</span>を<a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95">Newton-Raphson法</a>で求める（<code class="docutils literal notranslate"><span class="pre">fx</span></code>と<code class="docutils literal notranslate"><span class="pre">gx</span></code>はそれぞれ、<span class="math notranslate nohighlight">\(f(x)\)</span>、<span class="math notranslate nohighlight">\(f'(x)\)</span>の値を格納する）。より正確には、Newton-Raphson法の更新式、</p>
 <div class="math notranslate nohighlight">
@@ -1055,6 +1054,10 @@ x \leftarrow x - \frac{f(x)}{f'(x)}
 </pre></div>
 </div>
 </div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">無限ループの強制終了</p>
+<p>無限ループはプログラムが停止しなくなる恐れがある。もしプログラムが停止しなくなった場合は、Pythonの対話型シェルであればキーボードで<code class="docutils literal notranslate"><span class="pre">[Ctrl]+[c]</span></code>を押し、Jupyter Notebookであればメニューから”Kernel” - “Interrupt Kernel”を選択し、プログラムの実行を強制的に停止できる。</p>
 </div>
 </div>
 <div class="section" id="continue">
