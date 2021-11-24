@@ -9,7 +9,7 @@ twitter_card = """
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@chokkanorg">
     <meta name="twitter:title" content="Python早見帳">
-    <meta name="twitter:description" content="Python早見帳は、Pythonのプログラムと実行例をさっと確認できるようにまとめたJupyter Notebookです。">
+    <meta name="twitter:description" content="Python早見帳は、Pythonのプログラムと実行例をさっと確認（早見）できるJupyter Notebook（帳）です。">
     <meta name="twitter:image" content="https://chokkan.github.io/python/_static/python-note.png">
 
     <!-- Google Analytics -->
@@ -27,6 +27,14 @@ def add_twitter_card():
         with open(src, 'w') as fo:
             fo.write(content)
 
+def update_license():
+    for src in glob.glob('*.ipynb'):
+        with open(src) as fi:
+            content = fi.read()
+        with open(src, 'w') as fo:
+            fo.write(content)
+
 if __name__ == '__main__':
+    #update_license()
     build()
     add_twitter_card()

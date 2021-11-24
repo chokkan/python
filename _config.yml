@@ -7,7 +7,7 @@
 # Book settings
 title: Python早見帳
 author: ""
-copyright: "2020-2021 by 岡崎 直観 (Naoaki Okazaki), クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0)"
+copyright: "2020-2021 by 岡崎 直観 (Naoaki Okazaki), クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)"
 exclude_patterns: [_build, material, README.md, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 only_build_toc_files: true
 
@@ -57,7 +57,7 @@ html:
     hypothesis              : false
     utterances              : false
   extra_footer: |
-    © Copyright 2020-2021 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    © Copyright 2020-2021 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
 
 #######################################################################################
 # Launch button settings
