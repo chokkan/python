@@ -1,6 +1,6 @@
-# 参考・謝辞
+# 関連サイト・謝辞
 
-## 参考
+## 関連サイト
 
 + [Pythonチュートリアル](https://docs.python.org/ja/3/tutorial/)
 + [Dive Into Python 3 日本語版](http://diveintopython3-ja.rdy.jp/)
@@ -12,4 +12,4 @@
 
 ## 謝辞
 
-+ [Jupiter](https://images.nasa.gov/details-PIA00343): The credit of the image used in Twitter card: NASA/JPL/USGS
++ [Jupiter](https://images.nasa.gov/details-PIA00343): The credit of the image used in the Twitter card: NASA/JPL/USGS

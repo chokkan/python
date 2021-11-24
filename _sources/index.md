@@ -5,7 +5,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![made-with-numpy](https://img.shields.io/badge/Made%20with-NumPy-1f425f.svg)](https://numpy.org/)
 [![made-with-matplotlib](https://img.shields.io/badge/Made%20with-Matplotlib-1f425f.svg)](https://matplotlib.org/)
-[![クリエイティブ・コモンズ・ライセンス](https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![クリエイティブ・コモンズ・ライセンス](https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 ```
 
 Python早見帳は、Pythonのプログラムと実行例をさっと確認（**早見**）できるJupyter Notebook（**帳**）です。
@@ -32,7 +32,7 @@ Pythonでデータ分析や機械学習を行うときに基礎となるライ�
 ---
 **オープンソース・プロジェクト** 🎁
 ^^^
-Python早見帳は、[クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)のライセンスで公開されています。不具合報告はGitHubの[issues](https://github.com/chokkan/python/issues)までお願いします。
+Python早見帳は、[クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja)のライセンスで公開されています。不具合報告はGitHubの[issues](https://github.com/chokkan/python/issues)までお願いします。
 
 :::
 
