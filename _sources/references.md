@@ -1,6 +1,6 @@
-# 関連サイト・謝辞
+# リンク・謝辞
 
-## 関連サイト
+## リンク
 
 + [Pythonチュートリアル](https://docs.python.org/ja/3/tutorial/)
 + [Dive Into Python 3 日本語版](http://diveintopython3-ja.rdy.jp/)
