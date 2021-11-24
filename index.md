@@ -3,12 +3,12 @@
 ```{only} html
 [![Jupyter Book Badge](https://jupyterbook.org/_images/badge.svg)](https://jupyterbook.org)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
-[![made-with-mathjax](https://img.shields.io/badge/Made%20with-MathJax-1f425f.svg)](https://www.mathjax.org/)
+[![made-with-numpy](https://img.shields.io/badge/Made%20with-NumPy-1f425f.svg)](https://numpy.org/)
+[![made-with-matplotlib](https://img.shields.io/badge/Made%20with-Matplotlib-1f425f.svg)](https://matplotlib.org/)
 [![クリエイティブ・コモンズ・ライセンス](https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 ```
 
-Python早見帳は、プログラミング言語Pythonを素早く概観（**早見**）するノート（**帳**）です。
+Python早見帳は、Pythonのプログラムと実行例をさっと確認（**早見**）できるJupyter Notebook（**帳**）です。
 
 :::{panels}
 :container: +full-width
@@ -22,10 +22,10 @@ Python早見帳は、何らかのプログラミング言語に触れたこと�
 ---
 👩‍💻 **Jupyter Notebook** 👨‍💻
 ^^^
-Python早見帳のJupyter Notebookを公開していますので、[Google Colaboratory](https://colab.research.google.com/)などの環境でプログラムを動かしながら、Pythonへの理解を深めることができます。
+Python早見帳のJupyter Notebookを公開していますので、[Google Colaboratory](https://colab.research.google.com/)などの環境でプログラムを実際に動かしながら、Pythonへの理解を深めることができます。
 
 ---
-📈 **NumPyやMatplotlibに対応** 📊
+📈 **データ分析のトピックをカバー** 📊
 ^^^
 Pythonでデータ分析や機械学習を行うときに基礎となるライブラリである[NumPy](https://numpy.org/)と[Matplotlib](https://matplotlib.org/)を紹介しています。機械学習の勉強には、[機械学習帳](https://chokkan.github.io/mlnote)も合わせてご活用ください。
 
