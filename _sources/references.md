@@ -12,4 +12,4 @@
 
 ## 謝辞
 
-+ [Jupiter](https://images.nasa.gov/details-PIA00343): The credit of the image used in the Twitter card: NASA/JPL/USGS
++ [The Python Logo](https://www.python.org/community/logos/): The Twitter card of this Web site includes the Python logo.
