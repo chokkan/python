@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. ファイルの入出力 &#8212; Python早見帳</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://chokkan.github.io/python/11file.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. 可変と不変" href="12immutable.html" />
+    <link rel="prev" title="10. 集合" href="10set.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@chokkanorg">
+    <meta name="twitter:title" content="Python早見帳">
+    <meta name="twitter:description" content="Python早見帳は、Pythonのプログラムと実行例をさっと確認（早見）できるJupyter Notebook（帳）です。">
+    <meta name="twitter:image" content="https://chokkan.github.io/python/_static/python-note.png">
+
+    <!-- Google Analytics -->
+
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Python早見帳</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  基礎
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01calc.html">
+   1. 基本的な計算
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02variable.html">
+   2. 変数
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03control.html">
+   3. 実行制御
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04function.html">
+   4. 関数
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05module.html">
+   5. モジュール
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  データ構造
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06list.html">
+   6. リスト
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07tuple.html">
+   7. タプル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08str.html">
+   8. 文字列
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09dict.html">
+   9. 辞書
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10set.html">
+   10. 集合
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  発展
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. ファイルの入出力
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12immutable.html">
+   12. 可変と不変
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13class.html">
+   13. クラス
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14exception.html">
+   14. 例外
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15iterator.html">
+   15. イテレータとジェネレータ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  科学技術計算とデータ分析
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="16numpy1.html">
+   16. NumPy (1): ベクトル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17numpy2.html">
+   17. NumPy (2): 行列・テンソル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="18plot.html">
+   18. Matplotlib: グラフの描画
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  付録
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter.html">
+   Jupyter Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   リンク・謝辞
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/11file.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2F11file.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/11file.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/chokkan/python/blob/main/11file.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   11.1. ファイルへの書き込み
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   11.2. ファイルからの読み込み
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#csv">
+   11.3. CSV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#json">
+   11.4. JSON
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   11.5. 文字コードを指定したファイルオブジェクト
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">11. </span>ファイルの入出力<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">11.1. </span>ファイルへの書き込み<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>ここでは、以下のオブジェクトの内容をテキストファイルとして書き出す例を示す。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;東京&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;とうきょう&#39;</span><span class="p">,</span> <span class="s1">&#39;Tokyo&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;神奈川&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;かながわ&#39;</span><span class="p">,</span> <span class="s1">&#39;Kanagawa&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;千葉&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ちば&#39;</span><span class="p">,</span> <span class="s1">&#39;Chiba&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;埼玉&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;さいたま&#39;</span><span class="p">,</span> <span class="s1">&#39;Saitama&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>まず、インタプリタ上でこのオブジェクトの内容を表示するコードは以下の通り。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="p">(</span><span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ja</span><span class="p">,</span> <span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+神奈川 かながわ Kanagawa
+千葉 ちば Chiba
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>ファイルを書き込みモードで開くには、<a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#open">open</a>関数の第１引数にファイル名、第２引数に<code class="docutils literal notranslate"><span class="pre">'w'</span></code>を指定し、戻り値としてファイルオブジェクトを受け取る。そして、print関数を呼び出すときに、<code class="docutils literal notranslate"><span class="pre">file</span></code>という引数にファイルオブジェクトを渡す。ファイルへの書き出しが終わったら、close関数でファイルを閉じる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="p">(</span><span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ja</span><span class="p">,</span> <span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">fo</span><span class="p">)</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>catコマンド（ファイルの内容を表示するコマンド）で出力内容を確認してみる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+神奈川 かながわ Kanagawa
+千葉 ちば Chiba
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>なお、close関数を呼び出すのを忘れると、ファイルに内容が書き込まれないことがある。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="p">(</span><span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ja</span><span class="p">,</span> <span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">fo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>catコマンドを呼び出しても、書き出した内容が表示されない。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture2.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>ここでclose関数を呼び出すと、ファイルに内容が書き込まれる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>今度はcatコマンドで書き出した内容が表示された。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture2.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+神奈川 かながわ Kanagawa
+千葉 ちば Chiba
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>ファイルの閉じ忘れを防ぐ構文として<a class="reference external" href="https://docs.python.org/ja/3/reference/compound_stmts.html#with">with</a>文が便利。普段から以下のように記述しておくとよい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="p">(</span><span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ja</span><span class="p">,</span> <span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">fo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture3.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+神奈川 かながわ Kanagawa
+千葉 ちば Chiba
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>print関数の代わりに、ファイルオブジェクトの<a class="reference external" href="https://docs.python.org/ja/3/library/io.html#io.BufferedIOBase.write">write</a>関数を用い、文字列を書き出すこともできる。write関数を用いる場合は、改行が出力されないので、出力する文字列の中に改行を含める。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture4.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="p">(</span><span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ja</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">yomi</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">en</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture4.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+神奈川 かながわ Kanagawa
+千葉 ちば Chiba
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">11.2. </span>ファイルからの読み込み<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ファイルを読み込みモードで開くには、<a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#open">open</a>関数の第１引数にファイル名を指定するだけでよい（第２引数に<code class="docutils literal notranslate"><span class="pre">'r'</span></code>がデフォルトで指定される）。ファイルオブジェクトに対してfor文で反復処理を行うと、ファイルから１行ずつ読み出すことができる。ただし、読み出された各行（<code class="docutils literal notranslate"><span class="pre">line</span></code>）の末尾の改行は取り除かれない。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+
+神奈川 かながわ Kanagawa
+
+千葉 ちば Chiba
+
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>末尾の改行を取り除くには、strip関数などを用いる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京 とうきょう Tokyo
+神奈川 かながわ Kanagawa
+千葉 ちば Chiba
+埼玉 さいたま Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>各行はスペース区切りで値が格納されているので、split関数で値を取り出し、辞書にセットすることで、元のオブジェクト<code class="docutils literal notranslate"><span class="pre">d</span></code>を復元できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">r</span><span class="p">[</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;東京&#39;: [&#39;とうきょう&#39;, &#39;Tokyo&#39;],
+ &#39;神奈川&#39;: [&#39;かながわ&#39;, &#39;Kanagawa&#39;],
+ &#39;千葉&#39;: [&#39;ちば&#39;, &#39;Chiba&#39;],
+ &#39;埼玉&#39;: [&#39;さいたま&#39;, &#39;Saitama&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="csv">
+<h2><span class="section-number">11.3. </span>CSV<a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h2>
+<p>コンマ区切り形式（CSV）ファイルの読み書きには、csvモジュールが便利である。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下のオブジェクトをCSV形式で書き出す例を示す。。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;東京&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;とうきょう&#39;</span><span class="p">,</span> <span class="s1">&#39;Tokyo&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;神奈川&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;かながわ&#39;</span><span class="p">,</span> <span class="s1">&#39;Kanagawa&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;千葉&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ちば&#39;</span><span class="p">,</span> <span class="s1">&#39;Chiba&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;埼玉&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;さいたま&#39;</span><span class="p">,</span> <span class="s1">&#39;Saitama&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CSVファイルに書き出すには、<a class="reference external" href="https://docs.python.org/ja/3/library/csv.html#csv.writer">csv.writer</a>オブジェクトを作成し、<a class="reference external" href="https://docs.python.org/ja/3/library/csv.html#csv.writer">writerow</a>メソッドなどを呼び出せばよい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">fo</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="p">(</span><span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="n">ja</span><span class="p">,</span> <span class="n">yomi</span><span class="p">,</span> <span class="n">en</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>東京,とうきょう,Tokyo
+神奈川,かながわ,Kanagawa
+千葉,ちば,Chiba
+埼玉,さいたま,Saitama
+</pre></div>
+</div>
+</div>
+</div>
+<p>CSVファイルを読み込むには、<a class="reference external" href="https://docs.python.org/ja/3/library/csv.html#reader-objects">csv.reader</a>を用いる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">r</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;東京&#39;: [&#39;とうきょう&#39;, &#39;Tokyo&#39;],
+ &#39;神奈川&#39;: [&#39;かながわ&#39;, &#39;Kanagawa&#39;],
+ &#39;千葉&#39;: [&#39;ちば&#39;, &#39;Chiba&#39;],
+ &#39;埼玉&#39;: [&#39;さいたま&#39;, &#39;Saitama&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="json">
+<h2><span class="section-number">11.4. </span>JSON<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<p>JavaScript Object Notation (JSON) は、オブジェクトの内容をJavaScriptとして解釈できる形式で表現するものである。オブジェクトをCSV形式で保存する場合、オブジェクトの構造と平坦化されたカンマ区切りのリストの間で読み書きの処理が必要であったが、JSON形式を用いると構造を保持したままオブジェクトのそのまま書き出すことができる。最近では、多くのプログラミング言語でJSONを読み書きできるようになっているため、プログラミング言語に依存せずにデータのやり取りを行うために用いられる。JSON形式の読み書きを行うには、<a class="reference external" href="https://docs.python.org/ja/3/library/json.html">json</a>モジュールをロードする。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下のオブジェクトをJSON形式で書き出す例を示す。。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;東京&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;とうきょう&#39;</span><span class="p">,</span> <span class="s1">&#39;Tokyo&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;神奈川&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;かながわ&#39;</span><span class="p">,</span> <span class="s1">&#39;Kanagawa&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;千葉&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ちば&#39;</span><span class="p">,</span> <span class="s1">&#39;Chiba&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;埼玉&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;さいたま&#39;</span><span class="p">,</span> <span class="s1">&#39;Saitama&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>オブジェクトをJSON形式でファイルに書き出すには、<a class="reference external" href="https://docs.python.org/ja/3/library/json.html#json.dump">json.dump</a>関数に書き出したいオブジェクトを渡せばよい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>デフォルトでは日本語などのASCIIではない文字列がエスケープされてしまうので、書き出された内容が読みづらくなることがある。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture.json
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;\u6771\u4eac&quot;: [&quot;\u3068\u3046\u304d\u3087\u3046&quot;, &quot;Tokyo&quot;], &quot;\u795e\u5948\u5ddd&quot;: [&quot;\u304b\u306a\u304c\u308f&quot;, &quot;Kanagawa&quot;], &quot;\u5343\u8449&quot;: [&quot;\u3061\u3070&quot;, &quot;Chiba&quot;], &quot;\u57fc\u7389&quot;: [&quot;\u3055\u3044\u305f\u307e&quot;, &quot;Saitama&quot;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>そのようなときは、json.dump関数の引数に<code class="docutils literal notranslate"><span class="pre">ensure_ascii=False</span></code>を渡せばよい。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fo</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>書き出されたJSONの表記は、ほぼPythonのオブジェクトの表記と同じである。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture.json
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;東京&quot;: [&quot;とうきょう&quot;, &quot;Tokyo&quot;], &quot;神奈川&quot;: [&quot;かながわ&quot;, &quot;Kanagawa&quot;], &quot;千葉&quot;: [&quot;ちば&quot;, &quot;Chiba&quot;], &quot;埼玉&quot;: [&quot;さいたま&quot;, &quot;Saitama&quot;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>さらに、<code class="docutils literal notranslate"><span class="pre">indent</span></code>引数にインデントの文字数を設定すると、書き出されたJSON表記が読みやすくなる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fo</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat prefecture.json
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+  &quot;東京&quot;: [
+    &quot;とうきょう&quot;,
+    &quot;Tokyo&quot;
+  ],
+  &quot;神奈川&quot;: [
+    &quot;かながわ&quot;,
+    &quot;Kanagawa&quot;
+  ],
+  &quot;千葉&quot;: [
+    &quot;ちば&quot;,
+    &quot;Chiba&quot;
+  ],
+  &quot;埼玉&quot;: [
+    &quot;さいたま&quot;,
+    &quot;Saitama&quot;
+  ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>JSONファイルを読み出すには、<a class="reference external" href="https://docs.python.org/ja/3/library/json.html#json.load">json.load</a>関数を呼び出せばよい（これまでにJSON形式で書き出した全ファイルは、JSONとして解釈すれば同じ内容のオブジェクトとして読み出される）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prefecture.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;東京&#39;: [&#39;とうきょう&#39;, &#39;Tokyo&#39;],
+ &#39;神奈川&#39;: [&#39;かながわ&#39;, &#39;Kanagawa&#39;],
+ &#39;千葉&#39;: [&#39;ちば&#39;, &#39;Chiba&#39;],
+ &#39;埼玉&#39;: [&#39;さいたま&#39;, &#39;Saitama&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">11.5. </span>文字コードを指定したファイルオブジェクト<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>東京都の<a class="reference external" href="https://www.toukei.metro.tokyo.lg.jp/kurasi/2019/ku19-18.htm">くらしと統計2019　運輸・観光</a>のウェブサイトから<a class="reference external" href="https://www.toukei.metro.tokyo.lg.jp/kurasi/2019/csv/ku19rv1810.csv">主な駅の乗車人員数（平成28年度）のCSVファイル</a>をダウンロードする。ダウンロードには<a class="reference external" href="https://www.gnu.org/software/wget/">wget</a>というコマンドを利用している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -O station.csv https://www.toukei.metro.tokyo.lg.jp/kurasi/2019/csv/ku19rv1810.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-11-23 16:36:38--  https://www.toukei.metro.tokyo.lg.jp/kurasi/2019/csv/ku19rv1810.csv
+Resolving www.toukei.metro.tokyo.lg.jp (www.toukei.metro.tokyo.lg.jp)... 23.210.219.59, 23.210.219.17
+Connecting to www.toukei.metro.tokyo.lg.jp (www.toukei.metro.tokyo.lg.jp)|23.210.219.59|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 847 [text/csv]
+Saving to: ‘station.csv’
+
+station.csv         100%[===================&gt;]     847  --.-KB/s    in 0s      
+
+2021-11-23 16:36:39 (147 MB/s) - ‘station.csv’ saved [847/847]
+</pre></div>
+</div>
+</div>
+</div>
+<p>catコマンドを使ってダウンロードしたファイルの内容を確認する（文字化けすることはよくある）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat station.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1,���炵�Ɠ��v2019,,,,
+2,,�^�A�E�ό��|�P�@��ȉw�̏�Ԑl�����i����28�N�x�j,,,
+3,,��1�j  �u�V�h�v�͐����V�h�w���܂ށB,,,
+4,,��2�j  �u���E�~�c�v�̒n���S��Ԑl�����F�������i1���j��1�N�Ɋ��Z��������,,,
+5,,����  �s�����Ǔ��v���u�����s���v�N�Ӂv�iJR�����{�A���S�e�ЁA�����n���S�A�s��ʋǒ񋟎����j�A���l�s�u��96�񉡕l�s���v���v�A���É��s�u����29�N�Ŗ��É��s���v�N�Ӂv�A���s�u����29�N���s���v���v,,,
+6,�w��,JR�i��l�j,���S�i��l�j,�n���S�i��l�j,�v�i��l�j
+7,����,160437,�\,36393,196830
+8,�i��,135702,50555,�\,186257
+9,�a�J,135538,274312,188656,598506
+10,�V�h,280797,265673,131299,677769
+11,�r��,204371,176983,99835,481189
+12,���,66683,9329,37385,113397
+13,�H�t��,90017,23085,22272,135374
+14,���l(�_�ސ쌧),151359,236087,24923,412370
+15,���É��i���m���j,76253,80884,69206,226343
+16,���E�~�c�i���{�j,157513,141110,129076,427699
+</pre></div>
+</div>
+</div>
+</div>
+<p>ファイルの文字コードはおそらくShift_JIS (cp932) だろうと推測し、iconvで文字コードを変換してみる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat station.csv <span class="p">|</span> iconv -f cp932
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1,くらしと統計2019,,,,
+2,,運輸・観光－１　主な駅の乗車人員数（平成28年度）,,,
+3,,注1）  「新宿」は西武新宿駅を含む。,,,
+4,,注2）  「大阪・梅田」の地下鉄乗車人員数：調査日（1日）を1年に換算したもの,,,
+5,,資料  都総務局統計部「東京都統計年鑑」（JR東日本、私鉄各社、東京地下鉄、都交通局提供資料）、横浜市「第96回横浜市統計書」、名古屋市「平成29年版名古屋市統計年鑑」、大阪市「平成29年大阪市統計書」,,,
+6,駅名,JR（千人）,私鉄（千人）,地下鉄（千人）,計（千人）
+7,東京,160437,―,36393,196830
+8,品川,135702,50555,―,186257
+9,渋谷,135538,274312,188656,598506
+10,新宿,280797,265673,131299,677769
+11,池袋,204371,176983,99835,481189
+12,上野,66683,9329,37385,113397
+13,秋葉原,90017,23085,22272,135374
+14,横浜(神奈川県),151359,236087,24923,412370
+15,名古屋（愛知県）,76253,80884,69206,226343
+16,大阪・梅田（大阪府）,157513,141110,129076,427699
+</pre></div>
+</div>
+</div>
+</div>
+<p>open関数では、ファイルの読み書き時に使用する文字コードを<code class="docutils literal notranslate"><span class="pre">encoding</span></code>パラメータで指定できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;station.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;cp932&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1,くらしと統計2019,,,,
+2,,運輸・観光－１　主な駅の乗車人員数（平成28年度）,,,
+3,,注1）  「新宿」は西武新宿駅を含む。,,,
+4,,注2）  「大阪・梅田」の地下鉄乗車人員数：調査日（1日）を1年に換算したもの,,,
+5,,資料  都総務局統計部「東京都統計年鑑」（JR東日本、私鉄各社、東京地下鉄、都交通局提供資料）、横浜市「第96回横浜市統計書」、名古屋市「平成29年版名古屋市統計年鑑」、大阪市「平成29年大阪市統計書」,,,
+6,駅名,JR（千人）,私鉄（千人）,地下鉄（千人）,計（千人）
+7,東京,160437,―,36393,196830
+8,品川,135702,50555,―,186257
+9,渋谷,135538,274312,188656,598506
+10,新宿,280797,265673,131299,677769
+11,池袋,204371,176983,99835,481189
+12,上野,66683,9329,37385,113397
+13,秋葉原,90017,23085,22272,135374
+14,横浜(神奈川県),151359,236087,24923,412370
+15,名古屋（愛知県）,76253,80884,69206,226343
+16,大阪・梅田（大阪府）,157513,141110,129076,427699
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "chokkan/python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="10set.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>集合</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="12immutable.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>可変と不変</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            © Copyright 2020-2021 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
