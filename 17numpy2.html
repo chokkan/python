@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +40,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -53,12 +54,12 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://chokkan.github.io/python/17numpy2.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="18. Matplotlib: グラフの描画" href="18plot.html" />
     <link rel="prev" title="16. NumPy (1): ベクトル" href="16numpy1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     
@@ -101,7 +102,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="この本を検索..." aria-label="この本を検索..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
@@ -263,8 +264,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="ナビゲーションを切り替え" aria-controls="site-navigation"
+                title="ナビゲーションを切り替え" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -272,7 +273,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="このページをダウンロード"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -280,10 +281,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/17numpy2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="ソースファイルをダウンロード" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="PDFに印刷"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -296,12 +297,12 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="ソースリポジトリ"><i
+                    class="fab fa-github"></i>リポジトリ</button></a>
         <a class="issues-button"
             href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2F17numpy2.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                title="問題を開く"><i class="fas fa-lightbulb"></i>未解決の問題</button></a>
         
     </div>
 </div>
@@ -309,8 +310,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全画面モード"
+        title="全画面モード"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -321,7 +322,7 @@
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/17numpy2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="発売 Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -329,12 +330,12 @@
         
         
         <a class="colab-button" href="https://colab.research.google.com/github/chokkan/python/blob/main/17numpy2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                title="発売 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+            onclick="initThebeSBT()" title="発売 Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
@@ -346,7 +347,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> 目次
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -407,7 +408,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="numpy-2">
-<h1><span class="section-number">17. </span>NumPy (2): 行列・テンソル<a class="headerlink" href="#numpy-2" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">17. </span>NumPy (2): 行列・テンソル<a class="headerlink" href="#numpy-2" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>このノートブックでは<code class="docutils literal notranslate"><span class="pre">numpy</span></code>モジュールのエイリアス（短縮表記）として<code class="docutils literal notranslate"><span class="pre">np</span></code>を用いる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -417,7 +418,7 @@
 </div>
 </div>
 <div class="section" id="id1">
-<h2><span class="section-number">17.1. </span>行列のオブジェクト<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.1. </span>行列のオブジェクト<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>行列も<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">np.array</a>で作成できる。以下のコードは<span class="math notranslate nohighlight">\(3 \times 4\)</span>の行列</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -520,7 +521,7 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2><span class="section-number">17.2. </span>行列の要素<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.2. </span>行列の要素<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \pmb{X} = \left(\begin{array}{c}
@@ -687,7 +688,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">17.3. </span>行列の算術演算<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.3. </span>行列の算術演算<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \pmb{X} = \left(\begin{array}{c}
@@ -1010,7 +1011,7 @@ X^2 = \left(\begin{array}{c}
 </div>
 </div>
 <div class="section" id="id4">
-<h2><span class="section-number">17.4. </span>行列の様々な作成方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.4. </span>行列の様々な作成方法<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>零行列。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1235,7 +1236,7 @@ X^2 = \left(\begin{array}{c}
 </div>
 </div>
 <div class="section" id="id5">
-<h2><span class="section-number">17.5. </span>数学関数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.5. </span>数学関数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ベクトルのときに紹介した数学関数は行列でも使える。ただし、必要に応じて演算を行う単位を軸（axis）として指定する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1636,7 +1637,7 @@ X^2 = \left(\begin{array}{c}
 </div>
 </div>
 <div class="section" id="id6">
-<h2><span class="section-number">17.6. </span>ユニバーサル関数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.6. </span>ユニバーサル関数<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ベクトルの場合と同様に、行列に対して<a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">ユニバーサル関数</a>を適用すると、要素ごとに数学的な計算を行う。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1753,7 +1754,7 @@ X^2 = \left(\begin{array}{c}
 <p>その他、要素の切り捨て、切り上げ、四捨五入などもベクトルの場合と同様なので省略する。</p>
 </div>
 <div class="section" id="id7">
-<h2><span class="section-number">17.7. </span>行列の連結<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.7. </span>行列の連結<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -1834,7 +1835,7 @@ X^2 = \left(\begin{array}{c}
 </div>
 </div>
 <div class="section" id="id8">
-<h2><span class="section-number">17.8. </span>ビュー<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.8. </span>ビュー<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -2029,7 +2030,7 @@ X^2 = \left(\begin{array}{c}
 </div>
 </div>
 <div class="section" id="id9">
-<h2><span class="section-number">17.9. </span>テンソル<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.9. </span>テンソル<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>スカラー（次元数<span class="math notranslate nohighlight">\(0\)</span>）やベクトル（次元数<span class="math notranslate nohighlight">\(1\)</span>）、行列（次元数<span class="math notranslate nohighlight">\(2\)</span>）を一般化したものをテンソルと呼ぶ。以下のコードは3次元のテンソル<span class="math notranslate nohighlight">\(\mathsf{X}\)</span>を定義している。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2202,16 +2203,16 @@ X^2 = \left(\begin{array}{c}
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="16numpy1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="16numpy1.html" title="前へ ページ">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">前へ</p>
             <p class="prev-next-title"><span class="section-number">16. </span>NumPy (1): ベクトル</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="18plot.html" title="next page">
+    <a class='right-next' id="next-link" href="18plot.html" title="次へ ページ">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title"><span class="section-number">18. </span>Matplotlib: グラフの描画</p>
     </div>
     <i class="fas fa-angle-right"></i>

@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +40,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -51,12 +52,12 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://chokkan.github.io/python/13class.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="14. 例外" href="14exception.html" />
     <link rel="prev" title="12. 可変と不変" href="12immutable.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     
@@ -99,7 +100,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="この本を検索..." aria-label="この本を検索..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
@@ -261,8 +262,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="ナビゲーションを切り替え" aria-controls="site-navigation"
+                title="ナビゲーションを切り替え" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -270,7 +271,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="このページをダウンロード"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -278,10 +279,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/13class.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="ソースファイルをダウンロード" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="PDFに印刷"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -294,12 +295,12 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="ソースリポジトリ"><i
+                    class="fab fa-github"></i>リポジトリ</button></a>
         <a class="issues-button"
             href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2F13class.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                title="問題を開く"><i class="fas fa-lightbulb"></i>未解決の問題</button></a>
         
     </div>
 </div>
@@ -307,8 +308,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全画面モード"
+        title="全画面モード"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -319,7 +320,7 @@
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/13class.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="発売 Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -327,12 +328,12 @@
         
         
         <a class="colab-button" href="https://colab.research.google.com/github/chokkan/python/blob/main/13class.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                title="発売 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+            onclick="initThebeSBT()" title="発売 Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
@@ -344,7 +345,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> 目次
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -380,10 +381,10 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">13. </span>クラス<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">13. </span>クラス<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>クラスは変数（メンバ変数）と関数（メソッド）をまとめて管理できるオブジェクトの型を定義する。</p>
 <div class="section" id="id2">
-<h2><span class="section-number">13.1. </span>インスタンス化<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.1. </span>インスタンス化<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の例では2次元上の点を表すクラス<code class="docutils literal notranslate"><span class="pre">Point</span></code>を定義している。<code class="docutils literal notranslate"><span class="pre">Point</span></code>クラスのインスタンスのメンバ変数として<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>を定義し、それぞれ<code class="docutils literal notranslate"><span class="pre">0.</span></code>に初期化している。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,7 +590,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">13.2. </span>メソッド<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.2. </span>メソッド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>インスタンスのメンバ変数に対する操作などをメンバ関数（メソッド）として記述できる。メンバ関数の第１引数としてインスタンスが渡されるため、第１引数を<code class="docutils literal notranslate"><span class="pre">self</span></code>という変数名にするのが慣例。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -816,7 +817,7 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2><span class="section-number">13.3. </span>継承<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.3. </span>継承<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>あるクラスをベースとしてメンバ変数・関数を追加し、新しいクラスを定義することを継承と呼ぶ。2次元の点を表すクラス<code class="docutils literal notranslate"><span class="pre">Point</span></code>をベースに、3次元の点を表すクラス<code class="docutils literal notranslate"><span class="pre">Point3D</span></code>を作成する。このとき、<code class="docutils literal notranslate"><span class="pre">Point</span></code>クラスは親クラスと呼ばれる。以下の例における<code class="docutils literal notranslate"><span class="pre">super().__init__</span></code>は、<code class="docutils literal notranslate"><span class="pre">Point3D</span></code>クラスから見て親クラスである<code class="docutils literal notranslate"><span class="pre">Point</span></code>クラスの<code class="docutils literal notranslate"><span class="pre">__init__</span></code>関数を呼び出している。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,7 +947,7 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h2><span class="section-number">13.4. </span>特殊メソッド<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.4. </span>特殊メソッド<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>自分で定義したクラスのオブジェクトに対して、<code class="docutils literal notranslate"><span class="pre">+</span></code>演算子の動作や<code class="docutils literal notranslate"><span class="pre">str</span></code>関数を呼び出したときの動作を特殊メソッドに記述できる。以下は２次元の点を表現する<code class="docutils literal notranslate"><span class="pre">Point</span></code>クラスの特殊メソッドを実装する例。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1252,16 +1253,16 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="12immutable.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="12immutable.html" title="前へ ページ">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">前へ</p>
             <p class="prev-next-title"><span class="section-number">12. </span>可変と不変</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="14exception.html" title="next page">
+    <a class='right-next' id="next-link" href="14exception.html" title="次へ ページ">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title"><span class="section-number">14. </span>例外</p>
     </div>
     <i class="fas fa-angle-right"></i>

@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +40,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -51,12 +52,12 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://chokkan.github.io/python/06list.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="7. タプル" href="07tuple.html" />
     <link rel="prev" title="5. モジュール" href="05module.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     
@@ -99,7 +100,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="この本を検索..." aria-label="この本を検索..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
@@ -261,8 +262,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="ナビゲーションを切り替え" aria-controls="site-navigation"
+                title="ナビゲーションを切り替え" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -270,7 +271,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="このページをダウンロード"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -278,10 +279,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/06list.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="ソースファイルをダウンロード" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="PDFに印刷"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -294,12 +295,12 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="ソースリポジトリ"><i
+                    class="fab fa-github"></i>リポジトリ</button></a>
         <a class="issues-button"
             href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2F06list.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                title="問題を開く"><i class="fas fa-lightbulb"></i>未解決の問題</button></a>
         
     </div>
 </div>
@@ -307,8 +308,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全画面モード"
+        title="全画面モード"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -319,7 +320,7 @@
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/06list.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="発売 Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -327,12 +328,12 @@
         
         
         <a class="colab-button" href="https://colab.research.google.com/github/chokkan/python/blob/main/06list.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                title="発売 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+            onclick="initThebeSBT()" title="発売 Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
@@ -344,7 +345,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> 目次
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -429,9 +430,9 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="ch-list">
-<span id="id1"></span><h1><span class="section-number">6. </span>リスト<a class="headerlink" href="#ch-list" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">6. </span>リスト<a class="headerlink" href="#ch-list" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
-<h2><span class="section-number">6.1. </span>基本<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>基本<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html?highlight=list#sequence-types-list-tuple-range">リスト</a>は複数の値・オブジェクトをまとめる。要素を<code class="docutils literal notranslate"><span class="pre">,</span></code>で区切って並べ、全体を<code class="docutils literal notranslate"><span class="pre">[</span></code> <code class="docutils literal notranslate"><span class="pre">]</span></code>で囲んで作成する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,7 +588,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">6.2. </span>スライス<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>スライス<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">a[start:end:step]</span></code>という形式で、リストの要素の部分列を抽出できる（「スライス」と呼ばれる）。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: 抽出を開始する要素のインデックス番号。省略された場合は<code class="docutils literal notranslate"><span class="pre">0</span></code>となる。</p></li>
@@ -706,7 +707,7 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2><span class="section-number">6.3. </span>リストの要素に対する繰り返し<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>リストの要素に対する繰り返し<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">]</span>
@@ -779,7 +780,7 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h2><span class="section-number">6.4. </span>リストの要素に対する操作<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>リストの要素に対する操作<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wd</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;monday&#39;</span><span class="p">,</span> <span class="s1">&#39;tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;friday&#39;</span><span class="p">]</span>
@@ -909,7 +910,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2><span class="section-number">6.5. </span>要素の並び替え<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>要素の並び替え<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>要素を降順に並べたリストを新たに作成する（この場合は辞書順に並ぶ）。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1019,7 +1020,7 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2><span class="section-number">6.6. </span>要素の所属検査<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.6. </span>要素の所属検査<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ある要素がリストに含まれるかを調べる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1048,9 +1049,9 @@
 </div>
 </div>
 <div class="section" id="id8">
-<h2><span class="section-number">6.7. </span>リストと参照<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7. </span>リストと参照<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id9">
-<h3><span class="section-number">6.7.1. </span>参照の代入<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.1. </span>参照の代入<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>リスト<code class="docutils literal notranslate"><span class="pre">x</span></code>を作成する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,7 +1111,7 @@
 <p>これは、代入文<code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span></code>が「変数<code class="docutils literal notranslate"><span class="pre">y</span></code>を定義し、変数<code class="docutils literal notranslate"><span class="pre">y</span></code>の参照先を変数<code class="docutils literal notranslate"><span class="pre">x</span></code>の参照先と一致させる」という動作を行うからである。元々、変数<code class="docutils literal notranslate"><span class="pre">x</span></code>はリストオブジェクトを参照していた（関連付けられていた）ので、そのリスト・オブジェクトに複数の変数<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>を経由してアクセスできるようになった。ひとつのオブジェクトの実体を複数の変数<code class="docutils literal notranslate"><span class="pre">x</span></code>と<code class="docutils literal notranslate"><span class="pre">y</span></code>が参照している状況であるので、いずれの変数を経由してもオブジェクトの内容を変更できるし、いずれの変数を評価しても同じ結果が得られる。</p>
 </div>
 <div class="section" id="id10">
-<h3><span class="section-number">6.7.2. </span>リストのコピー<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.2. </span>リストのコピー<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>先ほどと同様に、リスト<code class="docutils literal notranslate"><span class="pre">x</span></code>を作成する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1176,7 +1177,7 @@
 </div>
 </div>
 <div class="section" id="id11">
-<h2><span class="section-number">6.8. </span>リストと関数の引数<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.8. </span>リストと関数の引数<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>引数で与えられたリストの末尾に<code class="docutils literal notranslate"><span class="pre">'END'</span></code>を追加する関数append_endを定義する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1223,7 +1224,7 @@
 <p>数値や文字列を引数として関数に渡す場合と異なり、リストを引数として関数に渡すと、その関数内でそのリストに対する変更は、関数の呼び出し元にも波及する。</p>
 </div>
 <div class="section" id="id12">
-<h2><span class="section-number">6.9. </span>リストの様々な作成方法<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9. </span>リストの様々な作成方法<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#range">range</a>関数が表す範囲に対応するリストを作成するには、<a class="reference external" href="https://docs.python.org/ja/3/library/stdtypes.html#list">list</a>関数を用いる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1298,7 +1299,7 @@
 </div>
 </div>
 <div class="section" id="id13">
-<h3><span class="section-number">6.9.1. </span>リストの内包表記<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.1. </span>リストの内包表記<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>空のリストを作成する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1341,7 +1342,7 @@
 </div>
 </div>
 </div>
-<p>上記の処理はリストの内包表記を使って簡潔に書ける。ソースコードを左から”list of i times two for all i in the range of ten”のように英語読みをすると解釈しやすい。</p>
+<p>上記の処理はリストの内包表記を使って簡潔に書ける。ソースコードを左から&quot;list of i times two for all i in the range of ten&quot;のように英語読みをすると解釈しやすい。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a2n</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
@@ -1435,7 +1436,7 @@
 </div>
 </div>
 <div class="section" id="id14">
-<h3><span class="section-number">6.9.2. </span>２次元配列作成時の注意<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.2. </span>２次元配列作成時の注意<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code>演算子を使うと、指定した値で初期化しながら、指定した要素数のリストを作ることができる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1586,16 +1587,16 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="05module.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="05module.html" title="前へ ページ">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">前へ</p>
             <p class="prev-next-title"><span class="section-number">5. </span>モジュール</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="07tuple.html" title="next page">
+    <a class='right-next' id="next-link" href="07tuple.html" title="次へ ページ">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title"><span class="section-number">7. </span>タプル</p>
     </div>
     <i class="fas fa-angle-right"></i>

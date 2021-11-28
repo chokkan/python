@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +40,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -51,12 +52,12 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://chokkan.github.io/python/jupyter.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="リンク・謝辞" href="references.html" />
     <link rel="prev" title="18. Matplotlib: グラフの描画" href="18plot.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="ja">
     
 
     
@@ -99,7 +100,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="この本を検索..." aria-label="この本を検索..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
@@ -261,8 +262,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="ナビゲーションを切り替え" aria-controls="site-navigation"
+                title="ナビゲーションを切り替え" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -270,7 +271,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="このページをダウンロード"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -278,10 +279,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/jupyter.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="ソースファイルをダウンロード" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="PDFに印刷"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -294,12 +295,12 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/chokkan/python"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="ソースリポジトリ"><i
+                    class="fab fa-github"></i>リポジトリ</button></a>
         <a class="issues-button"
             href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2Fjupyter.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                title="問題を開く"><i class="fas fa-lightbulb"></i>未解決の問題</button></a>
         
     </div>
 </div>
@@ -307,8 +308,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全画面モード"
+        title="全画面モード"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -319,7 +320,7 @@
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/jupyter.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="発売 Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -327,12 +328,12 @@
         
         
         <a class="colab-button" href="https://colab.research.google.com/github/chokkan/python/blob/main/jupyter.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                title="発売 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+            onclick="initThebeSBT()" title="発売 Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
@@ -344,7 +345,7 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> 目次
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -429,26 +430,26 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="jupyter-notebook">
-<h1>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h1>
+<h1>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
-<h2>Jupyter Notebookとは<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>Jupyter Notebookとは<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://jupyter.org/">Jupyter</a> Notebookは、プログラムとその実行結果、<a class="reference external" href="https://ja.wikipedia.org/wiki/Markdown">Markdown</a>形式のドキュメント、<a class="reference external" href="https://ja.wikipedia.org/wiki/LaTeX">LaTeX</a>形式（<a class="reference external" href="https://www.mathjax.org/">MathJax</a>）の数式、図表などをまとめて記述・格納できるウェブアプリケーションである。データ分析や機械学習の実行過程の「ノート」をつける用途だけでなく、ブラウザ上でお手軽にプログラミングを体験する環境としても広く普及している。</p>
 <p>例えば、物理の解説とその実験を行うプログラム、その実行結果をまとめたノートを作ることができる。</p>
 <p><img alt="Jupyter Notebookの例" src="_images/jupyter-notebook2.png" /></p>
 <p>Jupyterの前身である<a class="reference external" href="https://ipython.org/notebook.html">IPython Notebook</a>は、<a class="reference external" href="https://www.python.org/">Python</a>のインタラクティブなシェルである<a class="reference external" href="https://ipython.org/">IPython</a>のプロジェクトとして開発が進められ、研究者や開発者から急速な支持を集めた。プログラミング言語に依存した部分（カーネルと呼ばれる）を分離し、Python以外の言語のサポートも進んだことから、IPython NotebookはJupyterプロジェクトにスピンオフされた。</p>
 </div>
 <div class="section" id="google-colaboratory">
-<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="Permalink to this headline">¶</a></h2>
+<h2>Google Colaboratory<a class="headerlink" href="#google-colaboratory" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://colab.research.google.com/">Google Colaboratory</a>はGoogleが提供するクラウド実行型のJupyter環境である。後述する制限はあるものの、Googleアカウントがあれば無料で利用できる。詳しくは、<a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja">Colaboratory へようこそ（公式ドキュメント）</a>を参照のこと。</p>
 <div class="section" id="id2">
-<h3>Google Colaboratoryを開始する<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Google Colaboratoryを開始する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Googleアカウントにログインしたブラウザで、<a class="reference external" href="https://colab.research.google.com/">https://colab.research.google.com/</a> にアクセスすればよい。以下の画面で「ノートブックを新規作成」を選ぶ。</p>
 <p><img alt="新しいノートブックの作成" src="_images/colab-new.png" /></p>
 <p>すると、以下の画面のように新しいノートブックが作成される。</p>
 <p><img alt="新しく作成されたノートブック" src="_images/colab-clean.png" /></p>
 </div>
 <div class="section" id="id3">
-<h3>セルの操作<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>セルの操作<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ノートブックはプログラムやテキストを記述する<strong>セル</strong>と呼ばれるブロックの集まりで構成されている。セルはプログラムを記述し、その実行結果を保持する<strong>コードセル</strong>と、文章を記述する<strong>テキストセル</strong>の2種類に大別される。新しく作成されたセルはコードセルとして動作する。</p>
 <p>Pythonのコードを実行するには、セルにプログラムを入力し、<code class="docutils literal notranslate"><span class="pre">⌘/Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">Enter</span></code>キーを押す。すると、Googleのクラウドサーバ上でプログラムが実行され、その実行結果がブラウザに表示される。ここでは、以下のプログラムを入力・実行し、その出力が表示されている。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -474,21 +475,21 @@
 </ul>
 </div>
 <div class="section" id="id4">
-<h3>ノートブックの保存、ダウンロード、アップロード<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>左上の名前（デフォルトでは”Untitled?.ipynb”となっている）の部分をクリックすることで、保存するファイル名を変更できる。</p>
+<h3>ノートブックの保存、ダウンロード、アップロード<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>左上の名前（デフォルトでは&quot;Untitled?.ipynb&quot;となっている）の部分をクリックすることで、保存するファイル名を変更できる。</p>
 <p><img alt="ファイル名の変更" src="_images/colab-rename.png" /></p>
-<p>作成したノートブックは「ファイル」-&gt;「.ipynb をダウンロード」をクリックすることで、ダウンロードできる。保存されるファイルの拡張子は”.ipynb”である。</p>
+<p>作成したノートブックは「ファイル」-&gt;「.ipynb をダウンロード」をクリックすることで、ダウンロードできる。保存されるファイルの拡張子は&quot;.ipynb&quot;である。</p>
 <p><img alt="ノートブックのダウンロード" src="_images/colab-save.png" /></p>
 <p>逆に、手元にある.ipynbファイルをアップロードして、Google Colaboratory上で閲覧したり、動かすこともできる。「ファイル」-&gt;「ノートブックをアップロード」をクリックし、以下の画面になったらアップロードしたいファイルをドラッグ・ドロップすればよい。</p>
 <p><img alt="ノートブックのアップロード" src="_images/colab-upload.png" /></p>
 </div>
 <div class="section" id="id5">
-<h3>無料版Google Colaboratoryの制限<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>無料版Google Colaboratoryの制限<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Google Colaboratoryで新しいノートブックを開くと、プログラムの実行環境であるインスタンスが立ち上がる。そのインスタンスは<strong>立ち上げから12時間で強制終了</strong>となる。また、Colaboratoryにアクセスしているブラウザを閉じるなど、インスタンスとのセッションが切れた状態が90分続いても、強制終了となる。ただ、ノートブックそのものはGoogle Drive上に保存され続けるので、新たにノートブックを開いてインスタンスを立ち上げ直せば、再度実行することができる。プログラミングや機械学習の勉強用途であれば、無料版のGoogle Colaboratoryで十分と思われる。</p>
 </div>
 </div>
 <div class="section" id="jupyter">
-<h2>自分のパソコンにJupyterをインストールする<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h2>
+<h2>自分のパソコンにJupyterをインストールする<a class="headerlink" href="#jupyter" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Jupyterを自分のパソコンにインストールして動作させることもできる。この場合、Google Colaboratoryでノートブックを実行するときのような時間制限はない。Windows 10の場合、以下の2つの方法が現実的と思われる。</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://docs.microsoft.com/ja-jp/windows/wsl/about">Windows Subsystem for Linux (WSL)</a>上に<a class="reference external" href="https://ubuntu.com/">Ubuntu</a>をインストールし、さらに<a class="reference external" href="https://www.anaconda.com/products/individual">conda</a>をインストール</p></li>
@@ -499,9 +500,9 @@
 <p><img alt="Jupyter Lab" src="_images/jupyter-lab.png" /></p>
 </div>
 <div class="section" id="jupyter-ipython">
-<h2>Jupyter (IPython) の便利機能<a class="headerlink" href="#jupyter-ipython" title="Permalink to this headline">¶</a></h2>
+<h2>Jupyter (IPython) の便利機能<a class="headerlink" href="#jupyter-ipython" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id6">
-<h3>入力や出力の参照<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>入力や出力の参照<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span>
@@ -595,7 +596,7 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h3>シェルコマンドの実行<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>シェルコマンドの実行<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls *.txt
@@ -660,7 +661,7 @@ prefecture2.txt  prefecture4.txt  tokyo-covid.txt
 </div>
 </div>
 <div class="section" id="id8">
-<h3>イントロスペクション<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>イントロスペクション<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print<span class="o">?</span>
@@ -701,7 +702,7 @@ The substitutions are identified by braces (&#39;{&#39; and &#39;}&#39;).
 </div>
 </div>
 <div class="section" id="id9">
-<h3>実行速度の計測<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3>実行速度の計測<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum(range(1000))
@@ -755,7 +756,7 @@ The substitutions are identified by braces (&#39;{&#39; and &#39;}&#39;).
 </div>
 </div>
 <div class="section" id="id10">
-<h3>デバッグ<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3>デバッグ<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -969,16 +970,16 @@ The substitutions are identified by braces (&#39;{&#39; and &#39;}&#39;).
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="18plot.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="18plot.html" title="前へ ページ">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">前へ</p>
             <p class="prev-next-title"><span class="section-number">18. </span>Matplotlib: グラフの描画</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="references.html" title="next page">
+    <a class='right-next' id="next-link" href="references.html" title="次へ ページ">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title">リンク・謝辞</p>
     </div>
     <i class="fas fa-angle-right"></i>
