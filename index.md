@@ -28,7 +28,7 @@ Python早見帳のJupyter Notebookを[Github上で公開](https://github.com/cho
 ---
 📈 **データ分析のトピックをカバー** 📊
 ^^^
-Pythonでデータ分析や機械学習を行うときに基礎となるライブラリである[NumPy](https://numpy.org/)と[Matplotlib](https://matplotlib.org/)を紹介しています。機械学習の勉強には、[機械学習帳](https://chokkan.github.io/mlnote)も合わせてご活用ください。
+Pythonでデータ分析や機械学習を行うときに基礎となるライブラリである[NumPy](https://numpy.org/)と[Matplotlib](https://matplotlib.org/)を紹介しています。
 
 ---
 **オープンソース・プロジェクト** 🎁

@@ -50,7 +50,7 @@ html:
   use_issues_button         : true  # Whether to add an "open an issue" button
   use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
   extra_footer              : ""  # Will be displayed underneath the footer.
-  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  google_analytics_id       : "G-F7QDQE5R7W"  # A GA id that can be used to track book views.
   home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://chokkan.github.io/python/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
@@ -74,4 +74,5 @@ repository:
 
 sphinx:
   config:
+    language: ja
     html_show_copyright: false
