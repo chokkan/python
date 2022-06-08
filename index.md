@@ -12,31 +12,25 @@
 
 Python早見帳は、Pythonのプログラムと実行例をさっと確認（**早見**）できるJupyter Notebook（**帳**）です。
 
-:::{panels}
-:container: +full-width
-:column: col-lg-6 px-2 py-2
-:card:
+::::{grid} 2
+:gutter: 2
 
-**Pythonの基礎事項を素早く学べる** 📖
-^^^
+:::{grid-item-card} Pythonの基礎事項を素早く学べる 📖
 Python早見帳は、プログラムと実行例をカタログ的に提示しながら、Pythonの言語仕様やライブラリを紹介しています。Pythonの基礎を素早く習得したり、ライブラリやオブジェクトの使い方を確認することができます。
-
----
-👩‍💻 **Jupyter Notebook** 👨‍💻
-^^^
-Python早見帳のJupyter Notebookを[Github上で公開](https://github.com/chokkan/python)していますので、解説を読みながら実際にプログラムを動かすことができます。各ページにある[Google Colaboratory](https://colab.research.google.com/)や[Binder](https://mybinder.org/)へのリンクをクリックすることで、Python早見帳の実行環境がすぐに立ち上がります。
-
----
-📈 **データ分析のトピックをカバー** 📊
-^^^
-Pythonでデータ分析や機械学習を行うときに基礎となるライブラリである[NumPy](https://numpy.org/)と[Matplotlib](https://matplotlib.org/)を紹介しています。
-
----
-**オープンソース・プロジェクト** 🎁
-^^^
-Python早見帳は、[クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja)のライセンスで公開されています。不具合報告はGitHubの[issues](https://github.com/chokkan/python/issues)までお願いします。
-
 :::
+
+:::{grid-item-card} 👩‍💻 Jupyter Notebook 👨‍💻
+Python早見帳のJupyter Notebookを[Github上で公開](https://github.com/chokkan/python)していますので、解説を読みながら実際にプログラムを動かすことができます。各ページにある[Google Colaboratory](https://colab.research.google.com/)や[Binder](https://mybinder.org/)へのリンクをクリックすることで、Python早見帳の実行環境がすぐに立ち上がります。
+:::
+
+:::{grid-item-card} 📈 データ分析のトピックをカバー 📊
+Pythonでデータ分析や機械学習を行うときに基礎となるライブラリである[NumPy](https://numpy.org/)と[Matplotlib](https://matplotlib.org/)を紹介しています。
+:::
+
+:::{grid-item-card} オープンソース・プロジェクト 🎁
+Python早見帳は、[クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja)のライセンスで公開されています。不具合報告はGitHubの[issues](https://github.com/chokkan/python/issues)までお願いします。
+:::
+::::
 
 Python早見帳は、[Jupyter Lab](https://jupyter.org/#jupyterlab)で書かれたコンテンツを[Jupyter Book](https://jupyterbook.org/)で変換することで生成されています。
 
