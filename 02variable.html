@@ -485,6 +485,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1. 基本</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2. 変数の再評価</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.3. 複数の変数への代入</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-3-6">2.4. 変数の型アノテーション (Python 3.6以降)</a></li>
 </ul>
             </nav>
         </div>
@@ -500,7 +501,7 @@
 <h1><span class="section-number">2. </span>変数<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
 <h2><span class="section-number">2.1. </span>基本<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>代入文を書くと変数が作成され、その変数に値がセットされる。型は自動的に推定されるので、変数作成時に型を明示しなくてもよい（Python 3.5以降では<a class="reference external" href="https://docs.python.org/ja/3/library/typing.html">型ヒント</a>を使って変数の型を明示することが可能）。</p>
+<p>代入文を書くと変数が作成され、その変数に値がセットされる。C言語とは異なり、変数の宣言時に型を指定しなくてもよい（Pythonは動的型付け言語である）。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
@@ -685,7 +686,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_204875</span><span class="o">/</span><span class="mf">32546335.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_206365</span><span class="o">/</span><span class="mf">32546335.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
 
 <span class="ne">NameError</span>: name &#39;x&#39; is not defined
@@ -819,6 +820,40 @@
 </div>
 </div>
 </section>
+<section id="python-3-6">
+<h2><span class="section-number">2.4. </span>変数の型アノテーション (Python 3.6以降)<a class="headerlink" href="#python-3-6" title="Link to this heading">#</a></h2>
+<p>Pythonでは型を指定して変数を作成することはできないが、変数の型の説明（型アノテーションや型ヒントと呼ばれる）を付けることができる。Pythonに入門したての頃は型アノテーションを使いこなす必要はないが、型アノテーションを使った変数を見ても驚かないように、例を示しておく。</p>
+<p>以下は変数<code class="docutils literal notranslate"><span class="pre">x</span></code>はint型であると説明しながら、<code class="docutils literal notranslate"><span class="pre">1</span></code>を代入する例である。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下は変数<code class="docutils literal notranslate"><span class="pre">x</span></code>はint型であると説明しておきながら、浮動小数点数である<code class="docutils literal notranslate"><span class="pre">1.0</span></code>を代入する例である。これは型アノテーションと変数の型が一致していない悪い例である。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mf">1.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>実際に、変数<code class="docutils literal notranslate"><span class="pre">x</span></code>の型を調べてみると、int型ではなくfloat型となっている。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<p>このように、型アノテーションは変数の型を強制するものではないが、ソースコードの可読性の向上、エディタの自動補完機能、型チェックなどに用いられる。</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -889,6 +924,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1. 基本</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2. 変数の再評価</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.3. 複数の変数への代入</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-3-6">2.4. 変数の型アノテーション (Python 3.6以降)</a></li>
 </ul>
   </nav></div>
 

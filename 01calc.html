@@ -527,7 +527,7 @@
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">#</span></code>に続く記述はコメントとして扱われ、実行されない。</p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span></code>に続く記述はコメントとして扱われ、実行されない。処理内容の説明などを自由に記述できる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;Hello, world!&#39;という文字列を表示する。</span>
@@ -544,7 +544,7 @@
 </section>
 <section id="id2">
 <h2><span class="section-number">1.2. </span>四則演算<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>加算は<code class="docutils literal notranslate"><span class="pre">+</span></code>、減算は<code class="docutils literal notranslate"><span class="pre">-</span></code>、乗算は<code class="docutils literal notranslate"><span class="pre">*</span></code>、除算は<code class="docutils literal notranslate"><span class="pre">/</span></code>である。除算<code class="docutils literal notranslate"><span class="pre">/</span></code>の計算結果は浮動小数点数となる。</p>
+<p>加算は<code class="docutils literal notranslate"><span class="pre">+</span></code>、減算は<code class="docutils literal notranslate"><span class="pre">-</span></code>、乗算は<code class="docutils literal notranslate"><span class="pre">*</span></code>、除算は<code class="docutils literal notranslate"><span class="pre">/</span></code>である。除算<code class="docutils literal notranslate"><span class="pre">/</span></code>の計算結果は常に浮動小数点数となる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="o">+</span> <span class="mi">2</span>
@@ -614,7 +614,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_204856/333318335.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_206347/333318335.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">9</span> <span class="o">/</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -668,7 +668,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_204856/3091056297.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_206347/3091056297.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">2</span> <span class="o">*</span> <span class="o">*</span> <span class="mi">7</span>
         <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -718,6 +718,32 @@
 </div>
 </div>
 </div>
+<p>これに対し、単に<code class="docutils literal notranslate"><span class="pre">1</span></code>と書くと浮動小数点数にならず、整数で表現される（整数を評価したので、出力に小数点が付いていない）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>整数値を浮動小数点数で表現したいとき、小数点を末尾に付け、<code class="docutils literal notranslate"><span class="pre">0</span></code>を省略する書き方もある（<code class="docutils literal notranslate"><span class="pre">1.0</span></code>と書くのと同じである）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
 <p>指数を用いた浮動小数点 <span class="math notranslate nohighlight">\(a \times 10^b\)</span> は<code class="docutils literal notranslate"><span class="pre">e</span></code>を用いて表現できる（C言語と同様）。例えば、<span class="math notranslate nohighlight">\(6.02 \times 10^{23}\)</span>は、</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,7 +770,7 @@
 </div>
 </div>
 </div>
-<p>式の中に浮動小数点数が含まれる場合、計算結果も浮動小数点数になる。</p>
+<p>式の中に浮動小数点数が含まれる場合、計算結果（式の評価結果）も浮動小数点数になる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mf">9.0</span> <span class="o">+</span> <span class="mi">2</span>

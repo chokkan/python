@@ -493,6 +493,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">3.4. continue文</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break">3.5. break文</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forwhileelse">3.6. for文およびwhile文のelse節</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-python-3-10">3.7. match文 (Python 3.10以降)</a></li>
 </ul>
             </nav>
         </div>
@@ -594,7 +595,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_204893</span><span class="o">/</span><span class="mf">2530092115.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_206383</span><span class="o">/</span><span class="mf">2530092115.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">s</span>
@@ -722,7 +723,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_204893/1051765441.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_206383/1051765441.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">37.5</span><span class="p">:</span>
        <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax. Maybe you meant &#39;==&#39; or &#39;:=&#39; instead of &#39;=&#39;?
@@ -1069,7 +1070,7 @@
 </section>
 <section id="id4">
 <h3><span class="section-number">3.2.3. </span>条件式<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>代入とif文を組み合わせた書き方である。C言語の三項演算子（<code class="docutils literal notranslate"><span class="pre">条件</span> <span class="pre">?</span> <span class="pre">真の場合</span> <span class="pre">:</span> <span class="pre">偽の場合</span></code>）に対応する。</p>
+<p>代入とif文を組み合わせたような書き方がができる。C言語の三項演算子（<code class="docutils literal notranslate"><span class="pre">条件</span> <span class="pre">?</span> <span class="pre">真の場合</span> <span class="pre">:</span> <span class="pre">偽の場合</span></code>）に対応する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
@@ -1084,7 +1085,7 @@
 </div>
 </div>
 </div>
-<p>複数の条件式をネストして用いることもできる。以下の例では、<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">in</span> <span class="pre">(1,</span> <span class="pre">6,</span> <span class="pre">8,</span> <span class="pre">10)</span></code>の条件の評価が<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">3</span></code>よりも先に行われる。</p>
+<p>複数の条件式をネストさせて書くこともできる。以下の例では、<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">in</span> <span class="pre">(1,</span> <span class="pre">6,</span> <span class="pre">8,</span> <span class="pre">10)</span></code>の条件の評価が<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">3</span></code>よりも先に行われる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぽん&#39;</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;ぼん&#39;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="s1">&#39;ほん&#39;</span>
@@ -1249,6 +1250,98 @@ x \leftarrow x - \frac{f(x)}{f'(x)}
 </div>
 </div>
 </section>
+<section id="match-python-3-10">
+<h2><span class="section-number">3.7. </span>match文 (Python 3.10以降)<a class="headerlink" href="#match-python-3-10" title="Link to this heading">#</a></h2>
+<p>変数の値によって条件分岐を行いたいとき、条件が多くなると<code class="docutils literal notranslate"><span class="pre">elif</span></code>節で何度も同じ変数を書く必要が生じる。C言語では<code class="docutils literal notranslate"><span class="pre">switch</span></code>文を使ってシンプルに書くことができたが、Pythonには類似した構文が用意されていなかった。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;three&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;many&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>three
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python 3.10で<code class="docutils literal notranslate"><span class="pre">match</span></code>文が導入され、上記の処理は次のように書けるようになった。<code class="docutils literal notranslate"><span class="pre">case</span></code>文で照合したい値を指定していくと、上から順番に<code class="docutils literal notranslate"><span class="pre">match</span></code>文で指定した式と照合が行われていく。照合できなかった場合の処理は、<code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">_</span></code>で記述できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">match</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;three&#39;</span><span class="p">)</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;many&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>three
+</pre></div>
+</div>
+</div>
+</div>
+<p>複数の値のいずれかで照合をしたい場合は、演算子<code class="docutils literal notranslate"><span class="pre">|</span></code>を使う。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">6</span> <span class="o">|</span> <span class="mi">8</span> <span class="o">|</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぽん&#39;</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぼん&#39;</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ほん&#39;</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ぼん&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>C言語において複数の値のいずれかで照合させるには、<code class="docutils literal notranslate"><span class="pre">case</span></code>文を並べて書いていたが、この書き方は文法エラーとなる。</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぽん&#39;</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ぼん&#39;</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;ほん&#39;</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_206383/3715514536.py&quot;</span><span class="gt">, line </span><span class="mi">3</span>
+    <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block after &#39;case&#39; statement on line 2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1327,6 +1420,7 @@ x \leftarrow x - \frac{f(x)}{f'(x)}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">3.4. continue文</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break">3.5. break文</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forwhileelse">3.6. for文およびwhile文のelse節</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#match-python-3-10">3.7. match文 (Python 3.10以降)</a></li>
 </ul>
   </nav></div>
 
