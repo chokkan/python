@@ -7,7 +7,7 @@
 # Book settings
 title: Python早見帳
 author: ""
-copyright: "2020-2022 by 岡崎 直観 (Naoaki Okazaki), クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)"
+copyright: "2020-2024 by 岡崎 直観 (Naoaki Okazaki), クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)"
 exclude_patterns: [_build, material, README.md, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 only_build_toc_files: true
 
@@ -49,15 +49,18 @@ html:
   use_repository_button     : true  # Whether to add a link to your repository button
   use_issues_button         : true  # Whether to add an "open an issue" button
   use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
-  extra_footer              : ""  # Will be displayed underneath the footer.
-  google_analytics_id       : "G-F7QDQE5R7W"  # A GA id that can be used to track book views.
+  extra_footer: |                    # Will be displayed underneath the footer.
+    © Copyright 2020-2024 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
   home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://chokkan.github.io/python/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  analytics:
+    plausible_analytics_domain: ""
+    plausible_analytics_url: "https://plausible.io/js/script.js"
+    google_analytics_id       : "G-F7QDQE5R7W"  # A GA id that can be used to track book views.
   comments:
     hypothesis              : false
     utterances              : false
-  extra_footer: |
-    © Copyright 2020-2022 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+  announcement              : "" # A banner announcement at the top of the site.
 
 #######################################################################################
 # Launch button settings
@@ -70,9 +73,13 @@ launch_buttons:
 
 repository:
   url: https://github.com/chokkan/python  # Online location of your book
+  path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 sphinx:
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
   config:
     language: ja
     html_show_copyright: false
