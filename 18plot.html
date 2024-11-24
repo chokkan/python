@@ -1,630 +1,508 @@
 
 <!DOCTYPE html>
 
-<html lang="ja">
+
+<html lang="ja" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>18. Matplotlib: グラフの描画 &#8212; Python早見帳</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/documentation_options.js?v=1cf7f4d9"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=91613774"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-F7QDQE5R7W"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-F7QDQE5R7W');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-F7QDQE5R7W');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '18plot';</script>
     <link rel="canonical" href="https://chokkan.github.io/python/18plot.html" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="Jupyter Notebook" href="jupyter.html" />
     <link rel="prev" title="17. NumPy (2): 行列・テンソル" href="17numpy2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ja">
-    
-
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  <meta name="docsearch:version" content="" />
+  
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@chokkanorg">
     <meta name="twitter:title" content="Python早見帳">
     <meta name="twitter:description" content="Python早見帳は、Pythonのプログラムと実行例をさっと確認（早見）できるJupyter Notebook（帳）です。">
     <meta name="twitter:image" content="https://chokkan.github.io/python/_static/python-note.png">
+    </head>
 
-    <!-- Google Analytics -->
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
     
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F7QDQE5R7W"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-F7QDQE5R7W');
-                </script>
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
 
-  </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
 
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Python早見帳</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  基礎
- </span>
-</p>
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Python早見帳</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">検索</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">基礎</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01calc.html">
-   1. 基本的な計算
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02variable.html">
-   2. 変数
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03control.html">
-   3. 実行制御
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04function.html">
-   4. 関数
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05module.html">
-   5. モジュール
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="01calc.html">1. 基本的な計算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02variable.html">2. 変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03control.html">3. 実行制御</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04function.html">4. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05module.html">5. モジュール</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  データ構造
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">データ構造</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06list.html">
-   6. リスト
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07tuple.html">
-   7. タプル
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08str.html">
-   8. 文字列
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09dict.html">
-   9. 辞書
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10set.html">
-   10. 集合
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="06list.html">6. リスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07tuple.html">7. タプル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08str.html">8. 文字列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09dict.html">9. 辞書</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10set.html">10. 集合</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  発展
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">発展</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="11file.html">
-   11. ファイルの入出力
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12immutable.html">
-   12. 可変と不変
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="13class.html">
-   13. クラス
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="14exception.html">
-   14. 例外
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="15iterator.html">
-   15. イテレータとジェネレータ
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="11file.html">11. ファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12immutable.html">12. 可変と不変</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13class.html">13. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14exception.html">14. 例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15iterator.html">15. イテレータとジェネレータ</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  科学技術計算とデータ分析
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">科学技術計算とデータ分析</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="16numpy1.html">
-   16. NumPy (1): ベクトル
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="17numpy2.html">
-   17. NumPy (2): 行列・テンソル
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   18. Matplotlib: グラフの描画
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="16numpy1.html">16. NumPy (1): ベクトル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17numpy2.html">17. NumPy (2): 行列・テンソル</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Matplotlib: グラフの描画</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  付録
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">付録</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="jupyter.html">
-   Jupyter Notebook
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="references.html">
-   リンク・謝辞
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">リンク・謝辞</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/18plot.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/chokkan/python/blob/main/18plot.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/chokkan/python/main?urlpath=lab/tree/18plot.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/chokkan/python/blob/main/18plot.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
+</li>
 
-      </li>
+<li>
+    <a href="https://studiolab.sagemaker.aws/import/github/chokkan/python/blob/main/18plot.ipynb"
+       class="btn btn-sm dropdown-item"
+       title="Launch on SageMaker Studio Lab"
+       data-bs-placement="left" data-bs-toggle="tooltip">
 
-      <li>
-        <a href="https://studiolab.sagemaker.aws/import/github/chokkan/python/blob/main/18plot.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on SageMaker Studio Lab"
->
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-aws"></i>
 </span>
-<span class="headerbtn__text-container">SageMaker</span>
+<span class="btn__text-container">SageMaker</span>
 
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/chokkan/python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="ソースリポジトリ"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2F18plot.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="問題を報告"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/18plot.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/chokkan/python"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/chokkan/python/issues/new?title=Issue%20on%20page%20%2F18plot.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/18plot.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
 </button>
 
-      </li>
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   18.1. プロット
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   18.2. 軸やラベルの設定・変更
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   18.3. グラフの装飾
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   18.4. 棒グラフ
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   18.5. 散布図
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   18.6. 2次元メッシュ・等高線
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   18.7. アニメーション
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   18.8. 日本語の表示方法
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Matplotlib: グラフの描画</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   18.1. プロット
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   18.2. 軸やラベルの設定・変更
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   18.3. グラフの装飾
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   18.4. 棒グラフ
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   18.5. 散布図
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   18.6. 2次元メッシュ・等高線
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
-   18.7. アニメーション
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   18.8. 日本語の表示方法
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Matplotlib: グラフの描画</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.1. プロット</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">18.2. 軸やラベルの設定・変更</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">18.3. グラフの装飾</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">18.4. 棒グラフ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.5. 散布図</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.6. 2次元メッシュ・等高線</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.7. アニメーション</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.8. 日本語の表示方法</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="matplotlib">
-<h1><span class="section-number">18. </span>Matplotlib: グラフの描画<a class="headerlink" href="#matplotlib" title="このヘッドラインへのパーマリンク">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
+<h1><span class="section-number">18. </span>Matplotlib: グラフの描画<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -633,8 +511,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2><span class="section-number">18.1. </span>プロット<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id1">
+<h2><span class="section-number">18.1. </span>プロット<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2019年の東京の最高気温 (h) と最低気温 (l) の月ごとの平均</span>
@@ -661,7 +539,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_5_0.png" src="_images/18plot_5_0.png" />
+<img alt="_images/d756f1dba48a38b7128117049042dd23f37ea25bc67c77028292bad63d41bf07.png" src="_images/d756f1dba48a38b7128117049042dd23f37ea25bc67c77028292bad63d41bf07.png" />
 </div>
 </div>
 <p>plot関数の第3引数（<code class="docutils literal notranslate"><span class="pre">fmt</span></code>キーワード）に<code class="docutils literal notranslate"><span class="pre">'.'</span></code>を指定すると、データが点としてプロットされる（マーカーとして「点」を指定したことに相当する）。</p>
@@ -674,7 +552,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_7_0.png" src="_images/18plot_7_0.png" />
+<img alt="_images/b0cfefd90dd51f9332ed4a79fb509d4dab5cb272c97196cdc094c5371d9e928d.png" src="_images/b0cfefd90dd51f9332ed4a79fb509d4dab5cb272c97196cdc094c5371d9e928d.png" />
 </div>
 </div>
 <p>plot関数の第3引数（<code class="docutils literal notranslate"><span class="pre">fmt</span></code>キーワード）に<code class="docutils literal notranslate"><span class="pre">'o-'</span></code>を指定すると、データが大きめの丸としてプロットされ、その間が線で結ばれる（マーカーとして「丸」、線として「実線」を指定したことに相当する）。</p>
@@ -687,7 +565,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_9_0.png" src="_images/18plot_9_0.png" />
+<img alt="_images/5b32f8a401bff1ad73443fa83d3f2c08624920e022697560ed4bb0a3cfdb1d1c.png" src="_images/5b32f8a401bff1ad73443fa83d3f2c08624920e022697560ed4bb0a3cfdb1d1c.png" />
 </div>
 </div>
 <p>点を四角（<code class="docutils literal notranslate"><span class="pre">s</span></code>）、線を破線（<code class="docutils literal notranslate"><span class="pre">--</span></code>）、色を赤（<code class="docutils literal notranslate"><span class="pre">r</span></code>）でプロットする例。plot関数の第3引数（<code class="docutils literal notranslate"><span class="pre">fmt</span></code>キーワード）はマーカー、線、色の順番で指定する。。</p>
@@ -700,7 +578,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_11_0.png" src="_images/18plot_11_0.png" />
+<img alt="_images/b1057eb497af8854edf1fd3706428759a5ae4e8612ec00f66d5f5dd08bd02b7c.png" src="_images/b1057eb497af8854edf1fd3706428759a5ae4e8612ec00f66d5f5dd08bd02b7c.png" />
 </div>
 </div>
 <p>最高気温（<code class="docutils literal notranslate"><span class="pre">H</span></code>）と最低気温（<code class="docutils literal notranslate"><span class="pre">L</span></code>）をひとつの領域にプロットする例。</p>
@@ -714,7 +592,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_13_0.png" src="_images/18plot_13_0.png" />
+<img alt="_images/21c6134d0dc4e7b7f0747fc41cd7809b9948fc5fbe096c249c0835e70e972e3e.png" src="_images/21c6134d0dc4e7b7f0747fc41cd7809b9948fc5fbe096c249c0835e70e972e3e.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">fmt</span></code>引数の代わりに、マーカーを<code class="docutils literal notranslate"><span class="pre">marker</span></code>引数、線スタイルを<code class="docutils literal notranslate"><span class="pre">ls</span></code>引数、色を<code class="docutils literal notranslate"><span class="pre">color</span></code>引数で指定する例。指定できる<a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">マーカー</a>、<a class="reference external" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html">線スタイル</a>、<a class="reference external" href="https://matplotlib.org/stable/gallery/color/named_colors.html">色</a>はドキュメントを参照のこと。<code class="docutils literal notranslate"><span class="pre">ls</span></code>キーワード引数は<code class="docutils literal notranslate"><span class="pre">linestyle</span></code>キーワード引数の省略形である。</p>
@@ -728,7 +606,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_15_0.png" src="_images/18plot_15_0.png" />
+<img alt="_images/21c6134d0dc4e7b7f0747fc41cd7809b9948fc5fbe096c249c0835e70e972e3e.png" src="_images/21c6134d0dc4e7b7f0747fc41cd7809b9948fc5fbe096c249c0835e70e972e3e.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html">subplots</a>関数の引数でグラフを２つのプロットエリアに縦に分割し、最高気温と最低気温をプロットする例。</p>
@@ -742,7 +620,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_17_0.png" src="_images/18plot_17_0.png" />
+<img alt="_images/aa696f04908964feca8af07da5ffec3a8b23ac2e7b501ffd73cf8fb19f8abc54.png" src="_images/aa696f04908964feca8af07da5ffec3a8b23ac2e7b501ffd73cf8fb19f8abc54.png" />
 </div>
 </div>
 <p>グラフを２つのプロットエリアに縦に分割したとき、横軸を共有する例。</p>
@@ -756,7 +634,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_19_0.png" src="_images/18plot_19_0.png" />
+<img alt="_images/8b856d911853d4f02b373fc73bc9455f507c8637b2f3e1ac7700860688a29625.png" src="_images/8b856d911853d4f02b373fc73bc9455f507c8637b2f3e1ac7700860688a29625.png" />
 </div>
 </div>
 <p>グラフを２つのプロットエリアに横に分割し、最高気温と最低気温をプロットする例。</p>
@@ -770,7 +648,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_21_0.png" src="_images/18plot_21_0.png" />
+<img alt="_images/2a40658ef8af0942bc8da980d1cb8edd54fafbb55c5f1500b022cc955c1e888e.png" src="_images/2a40658ef8af0942bc8da980d1cb8edd54fafbb55c5f1500b022cc955c1e888e.png" />
 </div>
 </div>
 <p>グラフを２つのプロットエリアに横に分割したとき、縦軸を共有する例。</p>
@@ -784,7 +662,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_23_0.png" src="_images/18plot_23_0.png" />
+<img alt="_images/167862e65ac5b61ca8c1f875fe368a269494d065638e0f3a10e597415d7e7f4a.png" src="_images/167862e65ac5b61ca8c1f875fe368a269494d065638e0f3a10e597415d7e7f4a.png" />
 </div>
 </div>
 <p>plot関数で直線 <span class="math notranslate nohighlight">\(y = 0.5x + 2\)</span> を描画する例（2つの点 <span class="math notranslate nohighlight">\((0, 2), (10, 7)\)</span> を直線で結ぶ）。</p>
@@ -800,7 +678,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_25_0.png" src="_images/18plot_25_0.png" />
+<img alt="_images/007ea05f6e03c962ea643c20de8e376587aa4fcdebe463818272a69a1f17644b.png" src="_images/007ea05f6e03c962ea643c20de8e376587aa4fcdebe463818272a69a1f17644b.png" />
 </div>
 </div>
 <p>plot関数で正弦関数（<span class="math notranslate nohighlight">\(\sin\)</span>）の軌跡をプロットする例。</p>
@@ -818,7 +696,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_27_0.png" src="_images/18plot_27_0.png" />
+<img alt="_images/7f251a61fcb89197ee10dad674ea08198abca3678525e5f2a491fffd6dd475f5.png" src="_images/7f251a61fcb89197ee10dad674ea08198abca3678525e5f2a491fffd6dd475f5.png" />
 </div>
 </div>
 <p>グラフをファイルに保存する。</p>
@@ -829,9 +707,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id2">
-<h2><span class="section-number">18.2. </span>軸やラベルの設定・変更<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id2">
+<h2><span class="section-number">18.2. </span>軸やラベルの設定・変更<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>何も設定していないグラフ。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,7 +721,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_32_0.png" src="_images/18plot_32_0.png" />
+<img alt="_images/21c6134d0dc4e7b7f0747fc41cd7809b9948fc5fbe096c249c0835e70e972e3e.png" src="_images/21c6134d0dc4e7b7f0747fc41cd7809b9948fc5fbe096c249c0835e70e972e3e.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_xlim.html#matplotlib.axes.Axes.set_xlim">set_xlim</a>関数と<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_ylim.html#matplotlib.axes.Axes.set_ylim">set_ylim</a>関数で、横軸と縦軸の範囲を指定。</p>
@@ -859,7 +737,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_34_0.png" src="_images/18plot_34_0.png" />
+<img alt="_images/cc78ddad2b9a776bb6b9441bde6b28fab4d9e9c4b28137d4f72b95b997d9c365.png" src="_images/cc78ddad2b9a776bb6b9441bde6b28fab4d9e9c4b28137d4f72b95b997d9c365.png" />
 </div>
 </div>
 <p>plot関数の<code class="docutils literal notranslate"><span class="pre">label</span></code>引数と、<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib.axes.Axes.legend">legend</a>関数で凡例を表示（凡例の表示位置は、legend関数の<code class="docutils literal notranslate"><span class="pre">loc</span></code>引数で制御できる）。</p>
@@ -874,7 +752,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_36_0.png" src="_images/18plot_36_0.png" />
+<img alt="_images/3b17ce7439b90c22d4f6e8a16058057812fd785c19829b3aa6541293b3918446.png" src="_images/3b17ce7439b90c22d4f6e8a16058057812fd785c19829b3aa6541293b3918446.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title">set_title</a>関数、<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_xlabel.html#matplotlib.axes.Axes.set_xlabel">set_xlabel</a>関数、<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_ylabel.html#matplotlib.axes.Axes.set_ylabel">set_ylabel</a>関数を用いて、グラフや軸のタイトルを表示。</p>
@@ -891,7 +769,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_38_0.png" src="_images/18plot_38_0.png" />
+<img alt="_images/6848bccca32b788fdd4fda9bcbabf27aeb020cf392b9304054f2121c52c68e36.png" src="_images/6848bccca32b788fdd4fda9bcbabf27aeb020cf392b9304054f2121c52c68e36.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html#matplotlib.axes.Axes.grid">grid</a>関数でグリッドを表示。</p>
@@ -906,7 +784,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_40_0.png" src="_images/18plot_40_0.png" />
+<img alt="_images/37f15cccc95e4bc3b4281168a4f9419e149182a9314e2437c4e9a581af40f4c4.png" src="_images/37f15cccc95e4bc3b4281168a4f9419e149182a9314e2437c4e9a581af40f4c4.png" />
 </div>
 </div>
 <p>全てを指定してグラフを完成させたバージョン（<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axis.Axis.set_ticks.html">xaxis.set_ticks</a>関数で横軸のグリッドの幅を設定）。</p>
@@ -928,12 +806,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_42_0.png" src="_images/18plot_42_0.png" />
+<img alt="_images/8301060a91cba9128eb2fd716bc34cff5d93a870d3e361b96561db2096e9c4ec.png" src="_images/8301060a91cba9128eb2fd716bc34cff5d93a870d3e361b96561db2096e9c4ec.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2><span class="section-number">18.3. </span>グラフの装飾<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id3">
+<h2><span class="section-number">18.3. </span>グラフの装飾<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>グラフのサイズ（<code class="docutils literal notranslate"><span class="pre">figsize</span></code>）の変更（サイズ指定の単位はインチ）。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,7 +824,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_45_0.png" src="_images/18plot_45_0.png" />
+<img alt="_images/24c15365206ce3c91216b86934cd08806a5582b519f90bd8587ffaa178f16181.png" src="_images/24c15365206ce3c91216b86934cd08806a5582b519f90bd8587ffaa178f16181.png" />
 </div>
 </div>
 <p>グラフの解像度（<code class="docutils literal notranslate"><span class="pre">dpi</span></code>）を変更してグラフを拡大。</p>
@@ -961,7 +839,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_47_0.png" src="_images/18plot_47_0.png" />
+<img alt="_images/5d8745e44dd7ce83890f9d9b4887ef3bcc7871bfdbfd31033b961d3419d3680b.png" src="_images/5d8745e44dd7ce83890f9d9b4887ef3bcc7871bfdbfd31033b961d3419d3680b.png" />
 </div>
 </div>
 <p>matplotlibでデフォルトで用いられるパレットの色（tab color）を指定する例。</p>
@@ -976,7 +854,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_49_0.png" src="_images/18plot_49_0.png" />
+<img alt="_images/13b652522a97366cf1702bffef4bd2277c8699f06e7631f596cbea3f1fb8d92e.png" src="_images/13b652522a97366cf1702bffef4bd2277c8699f06e7631f596cbea3f1fb8d92e.png" />
 </div>
 </div>
 <p>線の太さ（<code class="docutils literal notranslate"><span class="pre">lw</span></code>）を指定する例。なお、<code class="docutils literal notranslate"><span class="pre">lw</span></code>キーワード引数は<code class="docutils literal notranslate"><span class="pre">linewidth</span></code>キーワード引数の省略形である。</p>
@@ -991,7 +869,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_51_0.png" src="_images/18plot_51_0.png" />
+<img alt="_images/89f73775ad620767ebf0fd88cfe37b6a931d91ebb29a3bed46951e7d6847ff81.png" src="_images/89f73775ad620767ebf0fd88cfe37b6a931d91ebb29a3bed46951e7d6847ff81.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axhline.html">axhline</a>関数で水平な補助線を描画する例。</p>
@@ -1008,7 +886,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_53_0.png" src="_images/18plot_53_0.png" />
+<img alt="_images/4653a75ba8e8701ee9588a9f1eb75e241da26d6cef6a3b25ff9141b9cb6ea809.png" src="_images/4653a75ba8e8701ee9588a9f1eb75e241da26d6cef6a3b25ff9141b9cb6ea809.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axvline.html">axvline</a>関数で垂直な補助線を描画する例</p>
@@ -1025,7 +903,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_55_0.png" src="_images/18plot_55_0.png" />
+<img alt="_images/8a80023a0ef11533c160354855bdf4fc8138e6c2563c85d1a6e73e3075386cc1.png" src="_images/8a80023a0ef11533c160354855bdf4fc8138e6c2563c85d1a6e73e3075386cc1.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html">fill_between</a>関数で2つの系列データの間を塗りつぶす例。</p>
@@ -1039,7 +917,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_57_0.png" src="_images/18plot_57_0.png" />
+<img alt="_images/f058d00b8fd027bad5cf0f80a57473bba627a125755fd166b1e12e1c79442390.png" src="_images/f058d00b8fd027bad5cf0f80a57473bba627a125755fd166b1e12e1c79442390.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html">text</a>関数で座標を指定してテキストを書き込む例（<code class="docutils literal notranslate"><span class="pre">ha='center'</span></code>は指定された横軸の位置が中心になるように調整する）。</p>
@@ -1056,7 +934,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_59_0.png" src="_images/18plot_59_0.png" />
+<img alt="_images/a80f22dbe22cb387a82f97cb3bafc913c76689d87d7751173e7b042d6879e710.png" src="_images/a80f22dbe22cb387a82f97cb3bafc913c76689d87d7751173e7b042d6879e710.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.annotate.html">annotate</a>関数でプロットされる値を書き込む例。</p>
@@ -1077,7 +955,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_61_0.png" src="_images/18plot_61_0.png" />
+<img alt="_images/a942b3b152f5eff7cf935a7dc7e3bccfa376b316fbe7a598cec5af5869b4b0b3.png" src="_images/a942b3b152f5eff7cf935a7dc7e3bccfa376b316fbe7a598cec5af5869b4b0b3.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.annotate.html">annotate</a>関数で指定された位置に矢印を描画し、その起点にテキストを書き込む例。</p>
@@ -1096,12 +974,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_63_0.png" src="_images/18plot_63_0.png" />
+<img alt="_images/5fd1055633c3b9a12f40d85d0d51ca22fb1231af05f7b8d118af30da1ec951a5.png" src="_images/5fd1055633c3b9a12f40d85d0d51ca22fb1231af05f7b8d118af30da1ec951a5.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2><span class="section-number">18.4. </span>棒グラフ<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id4">
+<h2><span class="section-number">18.4. </span>棒グラフ<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://matplotlib.org/3.3.2/api/_as_gen/matplotlib.axes.Axes.bar.html">bar</a>関数で棒グラフを描画。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1115,7 +993,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_66_0.png" src="_images/18plot_66_0.png" />
+<img alt="_images/b13cf47e957613e87182853d4b50494d1e15d2d8075da533e6e4dfeec922d4ba.png" src="_images/b13cf47e957613e87182853d4b50494d1e15d2d8075da533e6e4dfeec922d4ba.png" />
 </div>
 </div>
 <p>横軸の値のラベルを指定し、月名を表示する。</p>
@@ -1138,7 +1016,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_69_0.png" src="_images/18plot_69_0.png" />
+<img alt="_images/6555fd4b986adfe884fcaefa07056382ae0b5ff05fedac6b726878f60c80b9c4.png" src="_images/6555fd4b986adfe884fcaefa07056382ae0b5ff05fedac6b726878f60c80b9c4.png" />
 </div>
 </div>
 <p>bar関数を繰り返し用い、積み上げ棒グラフを描画。</p>
@@ -1156,7 +1034,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_71_0.png" src="_images/18plot_71_0.png" />
+<img alt="_images/381c49a8d0d3f9231cd24f6ab6212fb49b389a0ec9211fa8144963dfada21197.png" src="_images/381c49a8d0d3f9231cd24f6ab6212fb49b389a0ec9211fa8144963dfada21197.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/3.3.2/api/_as_gen/matplotlib.axes.Axes.barh.html">barh</a>関数を用いて、水平方向の棒グラフを描画。以下のコードで<a class="reference external" href="https://matplotlib.org/3.3.2/api/_as_gen/matplotlib.axes.Axes.invert_yaxis.html">invert_yaxis</a>関数を呼び出さないと、月が下から上の方向に並ぶ。</p>
@@ -1173,7 +1051,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_73_0.png" src="_images/18plot_73_0.png" />
+<img alt="_images/ad65884d4fc7dc52d3626efa1572364d04cb3682d8db3ecefe5b69d9618d8a2e.png" src="_images/ad65884d4fc7dc52d3626efa1572364d04cb3682d8db3ecefe5b69d9618d8a2e.png" />
 </div>
 </div>
 <p>barh関数を繰り返し用い、積み上げ棒グラフを描画。</p>
@@ -1192,12 +1070,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_75_0.png" src="_images/18plot_75_0.png" />
+<img alt="_images/68b93524d03b2cd61f062d88e7a9eb03ffc3ef2d1a08beae8e1b71fe0c5799a4.png" src="_images/68b93524d03b2cd61f062d88e7a9eb03ffc3ef2d1a08beae8e1b71fe0c5799a4.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h2><span class="section-number">18.5. </span>散布図<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id5">
+<h2><span class="section-number">18.5. </span>散布図<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>2次元平面上で、<span class="math notranslate nohighlight">\(0 \leq x &lt; 1 \wedge 0 \leq y &lt; 1\)</span>の範囲内でランダムな点を2000個作成し、<span class="math notranslate nohighlight">\(d\)</span>に格納する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1217,7 +1095,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_80_0.png" src="_images/18plot_80_0.png" />
+<img alt="_images/4ef802b57cb7c5a11be631c43b1fb6c83b02097163d4cfd4e545f36c6a9577db.png" src="_images/4ef802b57cb7c5a11be631c43b1fb6c83b02097163d4cfd4e545f36c6a9577db.png" />
 </div>
 </div>
 <p><a class="reference external" href="https://matplotlib.org/3.3.2/api/_as_gen/matplotlib.patches.Wedge.html">patches.Wedge</a>クラスを用いて円弧（中心座標は<span class="math notranslate nohighlight">\((0,0)\)</span>、半径は<span class="math notranslate nohighlight">\(1\)</span>、角度の範囲は0度から90度、alpha引数で透明度を指定）を描き、グラフの上に重ねる。</p>
@@ -1235,12 +1113,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_82_0.png" src="_images/18plot_82_0.png" />
+<img alt="_images/8cbd13bb9c1e35b17e12207039652f4183505313428ab0910f52f0cd7a4e10aa.png" src="_images/8cbd13bb9c1e35b17e12207039652f4183505313428ab0910f52f0cd7a4e10aa.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id6">
-<h2><span class="section-number">18.6. </span>2次元メッシュ・等高線<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id6">
+<h2><span class="section-number">18.6. </span>2次元メッシュ・等高線<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(z = 0.5 (x - 1)^2 + y^2 - 20\)</span>に対して、<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html">pcolormesh</a>関数で2次元メッシュを描画する例。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1262,7 +1140,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_85_0.png" src="_images/18plot_85_0.png" />
+<img alt="_images/2950ef345c113acfdbe979ecb4b2f4f1dd2d6fac9602e5cc4ef527da62467d8c.png" src="_images/2950ef345c113acfdbe979ecb4b2f4f1dd2d6fac9602e5cc4ef527da62467d8c.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(z = 0.5 (x - 1)^2 + y^2 - 20\)</span>に対して、<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contour.html">contour</a>関数で等高線を描画する例。</p>
@@ -1285,7 +1163,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_87_0.png" src="_images/18plot_87_0.png" />
+<img alt="_images/b52c22a0d7d89d9a1bb6bea4646d7cd3acd2d53cd6f27dec5a92ce39ffbd44a7.png" src="_images/b52c22a0d7d89d9a1bb6bea4646d7cd3acd2d53cd6f27dec5a92ce39ffbd44a7.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(z = 0.5 (x - 1)^2 + y^2 - 20\)</span>に対して、2次元メッシュと等高線を描画する例。</p>
@@ -1311,12 +1189,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_89_0.png" src="_images/18plot_89_0.png" />
+<img alt="_images/3db9c7a1979e26560b4af24892b2e49e5fe9ad6ff3c768b21aff86bf761b8aeb.png" src="_images/3db9c7a1979e26560b4af24892b2e49e5fe9ad6ff3c768b21aff86bf761b8aeb.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id7">
-<h2><span class="section-number">18.7. </span>アニメーション<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id7">
+<h2><span class="section-number">18.7. </span>アニメーション<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.animation</span>
@@ -1586,7 +1464,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_slider6307783a46274bcb87d032cc62b6acb3";
     var loop_select_id = "_anim_loop_select6307783a46274bcb87d032cc62b6acb3";
     var frames = new Array(100);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
 bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAAsT\
 AAALEwEAmpwYAAAX50lEQVR4nO3da4yW533n8e9/TgzMMAwHO3ENDnaN45BspGRpmlWlbVaJVrZf\
@@ -19480,7 +19358,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_slider03c8b3707a964ee788c3437f3ca98588";
     var loop_select_id = "_anim_loop_select03c8b3707a964ee788c3437f3ca98588";
     var frames = new Array(100);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
 bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAAsT\
 AAALEwEAmpwYAAAY4klEQVR4nO3df4xd5X3n8fd3fOeH7fHgscfGxh7/AMwGh6QFXEIaJaUi2gJ/\
@@ -33853,9 +33731,9 @@ mIiIREkBJiIiUVKAiYhIlBRgIiISJQWYiIhESQEmIiJR+v8YmSdmEnBPSAAAAABJRU5ErkJggg==\
 </script>
 </div></div>
 </div>
-</div>
-<div class="section" id="id8">
-<h2><span class="section-number">18.8. </span>日本語の表示方法<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h2>
+</section>
+<section id="id8">
+<h2><span class="section-number">18.8. </span>日本語の表示方法<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>月の名前を日本語表記に変更する。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -33909,13 +33787,13 @@ mIiIREkBJiIiUVKAiYhIlBRgIiISJQWYiIhESQEmIiJR+v8YmSdmEnBPSAAAAABJRU5ErkJggg==\
   font.set_text(s, 0, flags=flags)
 </pre></div>
 </div>
-<img alt="_images/18plot_100_1.png" src="_images/18plot_100_1.png" />
+<img alt="_images/9f30f075d77aec40e0fd02e4cf0f97086aa74a738210527415a3ff62333a1400.png" src="_images/9f30f075d77aec40e0fd02e4cf0f97086aa74a738210527415a3ff62333a1400.png" />
 </div>
 </div>
 <p>この問題に対処するには、japanize-matplotlibモジュールをインストールし、japanize_matplotlibをインポートすればよい（モジュールをインポートするときに&quot;-&quot;が&quot;_&quot;に置き換わることに注意）</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install japanize-matplotlib
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>japanize-matplotlib
 </pre></div>
 </div>
 </div>
@@ -33952,11 +33830,11 @@ Requirement already satisfied: six in /home/okazaki/.local/lib/python3.8/site-pa
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18plot_104_0.png" src="_images/18plot_104_0.png" />
+<img alt="_images/66e984376f70defff48117abbf9cc9359825c62f1a2f7486e177066883b0fec6.png" src="_images/66e984376f70defff48117abbf9cc9359825c62f1a2f7486e177066883b0fec6.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -33970,7 +33848,7 @@ Requirement already satisfied: six in /home/okazaki/.local/lib/python3.8/site-pa
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -33978,51 +33856,104 @@ Requirement already satisfied: six in /home/okazaki/.local/lib/python3.8/site-pa
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="17numpy2.html" title="前へ ページ">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">前へ</p>
-            <p class="prev-next-title"><span class="section-number">17. </span>NumPy (2): 行列・テンソル</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="17numpy2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>NumPy (2): 行列・テンソル</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="jupyter.html" title="次へ ページ">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="jupyter.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">次へ</p>
         <p class="prev-next-title">Jupyter Notebook</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.1. プロット</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">18.2. 軸やラベルの設定・変更</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">18.3. グラフの装飾</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">18.4. 棒グラフ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.5. 散布図</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.6. 2次元メッシュ・等高線</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.7. アニメーション</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.8. 日本語の表示方法</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    <div class="extra_footer">
-      © Copyright 2020-2022 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
-
-    </div>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © Copyright 2020-2024 by 岡崎 直観 (Naoaki Okazaki). この作品は<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
